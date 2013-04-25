@@ -6,6 +6,8 @@
 
 #import "HealthVault.h"
 #import "HealthVaultService.h"
+#import "HealthVaultResponse.h"
+#import "Common.h"
 
 #define HEALTH_VAULT_PLATFORM_URL @"https://platform.healthvault-ppe.com/platform/wildcat.ashx"
 #define HEALTH_VAULT_SHELL_URL @"https://account.healthvault-ppe.com"
@@ -60,24 +62,28 @@
     [self startSpinner];
 
     [self.service performAuthenticationCheck:self
-                     authenticationCompleted:@selector(authenticationCompleted)
-                           shellAuthRequired:@selector(shellAuthRequired)];
+                     authenticationCompleted:@selector(authenticationCompleted:)
+                           shellAuthRequired:@selector(shellAuthRequired:)];
 }
 
-- (void)authenticationCompleted {
+- (void)authenticationCompleted:(HealthVaultResponse *)response {
     [self.service saveSettings:kHealthVaultSettingName];
 
     [self stopSpinner];
 
-    if (self.authenticationCompletedBlock) self.authenticationCompletedBlock(self.service);
+    if (self.authenticationCompletedBlock) self.authenticationCompletedBlock(self.service, response);
 }
 
-- (void)shellAuthRequired {
+- (void)shellAuthRequired:(HealthVaultResponse *)response {
     [self.service saveSettings:kHealthVaultSettingName];
 
     [self stopSpinner];
 
-    if (self.shellAuthRequiredBlock) self.shellAuthRequiredBlock(self.service);
+    if (self.shellAuthRequiredBlock) self.shellAuthRequiredBlock(self.service, response);
+}
+
+- (NSURL *)URL {
+    return [NSURL URLWithString:[self.service getApplicationCreationUrl]];
 }
 
 @end

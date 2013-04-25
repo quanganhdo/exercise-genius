@@ -19,6 +19,7 @@
 		643EC52634EE74DA86D1B33A /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = 643ECB17DC62C1F33BE1B1B5 /* Exercise.m */; };
 		643EC53CE6884E2ED882B96F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 643ECFB91F0261A0931E2E2F /* MediaPlayer.framework */; };
 		643EC56ED9EA94BA48C9902C /* HealthVaultService.m in Sources */ = {isa = PBXBuildFile; fileRef = 643ECB6F464497398BAF15E1 /* HealthVaultService.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		643EC5BC575E0F5B0875A73B /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 643EC9C969A86268E720FFDC /* WebViewController.m */; };
 		643EC5DA57CAD4F23ECE73C8 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 643EC55B308D3AB94BCED388 /* MainStoryboard.storyboard */; };
 		643EC62D5D36D49D41CCA38A /* WebResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 643EC731905BA6D02BE654C8 /* WebResponse.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		643EC65438D25DA7809A4194 /* SDSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 643ECBE3CD1AABE52F87DC23 /* SDSegmentedControl.m */; };
@@ -82,6 +83,7 @@
 		643EC4B7D3174B91B06A7C29 /* GuidelinesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuidelinesTableViewController.h; sourceTree = "<group>"; };
 		643EC4E29097495496F678BC /* 102-walk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "102-walk.png"; sourceTree = "<group>"; };
 		643EC51C011D150F86076934 /* ExerciseMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseMapViewController.h; sourceTree = "<group>"; };
+		643EC5238BAE877B5E9BA8F0 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		643EC5780DCD180E15E5DC99 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		643EC5791D13EF8AF2ABBC89 /* CrumbPathView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrumbPathView.m; sourceTree = "<group>"; };
 		643EC5AF400472759BF48C27 /* HealthVaultRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthVaultRecord.h; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 		643EC93697FF4252C39148C7 /* HealthVaultResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthVaultResponse.h; sourceTree = "<group>"; };
 		643EC93A90630A6F581831DF /* Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
 		643EC99AB1C1A7BA977BA06D /* WebTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebTransport.h; sourceTree = "<group>"; };
+		643EC9C969A86268E720FFDC /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		643ECA15F991617B23CC4717 /* WebTransport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebTransport.m; sourceTree = "<group>"; };
 		643ECA30C59E6F31FD5350AC /* Logger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Logger.m; sourceTree = "<group>"; };
 		643ECA892ACD3A858F8AE6FF /* AuthenticationCheckState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationCheckState.m; sourceTree = "<group>"; };
@@ -276,6 +279,15 @@
 			path = Breadcrumb;
 			sourceTree = "<group>";
 		};
+		643EC8EF05176B437A88128A /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				643EC9C969A86268E720FFDC /* WebViewController.m */,
+				643EC5238BAE877B5E9BA8F0 /* WebViewController.h */,
+			);
+			path = Web;
+			sourceTree = "<group>";
+		};
 		643EC9B37DB457341376D7C0 /* Xml */ = {
 			isa = PBXGroup;
 			children = (
@@ -347,6 +359,7 @@
 			children = (
 				643EC3838455E6BCAAEA1671 /* Map */,
 				643ECF9F55BECBD34788826B /* List */,
+				643EC8EF05176B437A88128A /* Web */,
 			);
 			path = Exercises;
 			sourceTree = "<group>";
@@ -507,6 +520,7 @@
 				643EC56ED9EA94BA48C9902C /* HealthVaultService.m in Sources */,
 				643ECEB68EEDE9046FF88BB4 /* HealthVaultResponse.m in Sources */,
 				643EC81FF49415A3FFC533E4 /* HealthVault.m in Sources */,
+				643EC5BC575E0F5B0875A73B /* WebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

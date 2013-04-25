@@ -9,6 +9,7 @@
 #import "ExerciseMapViewController.h"
 #import "HealthVault.h"
 #import "HealthVaultService.h"
+#import "WebViewController.h"
 
 #define kUserDefaultsExercisesKey @"kUserDefaultsExercisesKey"
 
@@ -110,17 +111,36 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
     }
 }
 
+- (IBAction)finishShellAuthentication:(UIStoryboardSegue *)segue {
+    WebViewController *vc = segue.sourceViewController;
+    if (vc.isSuccess) {
+        // Retry
+        [self startSyncing];
+    }
+}
+
 - (void)save {
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.exercises];
     [[NSUserDefaults standardUserDefaults] setObject:data forKey:kUserDefaultsExercisesKey];
 }
 
 - (IBAction)startSyncing {
-    [[HealthVault mainVault] performAuthenticationCheckOnAuthenticationCompleted:^(HealthVaultService *service) {
+    [[HealthVault mainVault] performAuthenticationCheckOnAuthenticationCompleted:^(HealthVaultService *service, HealthVaultResponse *response) {
         LOG_NS(@"OK");
-    }                                                          shellAuthRequired:^(HealthVaultService *service) {
-        LOG_NS(@"NOT OK!!!");
+    }                                                          shellAuthRequired:^(HealthVaultService *service, HealthVaultResponse *response) {
+        if (response.hasError) {
+            alertError(response.errorText);
+        }
+
+        [self performSegueWithIdentifier:@"doShellAuth" sender:nil];
     }];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"doShellAuth"]) {
+        WebViewController *vc = segue.destinationViewController;
+        vc.URL = [[HealthVault mainVault] URL];
+    }
 }
 
 @end

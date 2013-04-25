@@ -4,7 +4,6 @@
 //
 
 
-#import <CoreLocation/CoreLocation.h>
 #import "Common.h"
 
 void alertError(id error) {
