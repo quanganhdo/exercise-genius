@@ -23,10 +23,10 @@
             </objects>
             <point key="canvasLocation" x="-248" y="276"/>
         </scene>
-        <!--Table View Controller - Guidelines-->
+        <!--Guidelines Table View Controller - Guidelines-->
         <scene sceneID="F2B-f1-Iju">
             <objects>
-                <tableViewController id="RdP-IS-fyQ" sceneMemberID="viewController">
+                <tableViewController id="RdP-IS-fyQ" customClass="GuidelinesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="WXK-Sm-mrg">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -390,6 +390,9 @@
             <relationships>
                 <relationship kind="action" name="addExercise:" candidateClass="UIStoryboardSegue"/>
             </relationships>
+        </class>
+        <class className="GuidelinesTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GuidelinesTableViewController.h"/>
         </class>
         <class className="UIStoryboardSegue" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
