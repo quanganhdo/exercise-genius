@@ -574,10 +574,12 @@
 		643EC68F27687D36D3366AE2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Quang Anh Do (6E286AZLTD)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ExerciseGenius/ExerciseGenius-Prefix.pch";
 				INFOPLIST_FILE = "ExerciseGenius/ExerciseGenius-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6B008C73-D615-4AFF-AD8F-D7E7BC0B2ADB";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -610,10 +612,12 @@
 		643ECEF481B9807E29CCD834 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Quang Anh Do (6E286AZLTD)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ExerciseGenius/ExerciseGenius-Prefix.pch";
 				INFOPLIST_FILE = "ExerciseGenius/ExerciseGenius-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6B008C73-D615-4AFF-AD8F-D7E7BC0B2ADB";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
