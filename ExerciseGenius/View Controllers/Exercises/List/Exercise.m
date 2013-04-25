@@ -20,12 +20,12 @@
 #pragma mark - Keyed
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
-//    [encoder encodeInteger:self.type forKey:@"type"];
+    [encoder encodeInteger:self.type forKey:@"type"];
     [encoder encodeObject:self.title forKey:@"title"];
-//    [encoder encodeObject:self.date forKey:@"date"];
-//    [encoder encodeDouble:self.distance forKey:@"distance"];
-//    [encoder encodeDouble:self.interval forKey:@"interval"];
-//    [encoder encodeObject:self.detail forKey:@"detail"];
+    [encoder encodeObject:self.date forKey:@"date"];
+    [encoder encodeDouble:self.distance forKey:@"distance"];
+    [encoder encodeDouble:self.interval forKey:@"interval"];
+    [encoder encodeObject:self.detail forKey:@"detail"];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {

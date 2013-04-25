@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		643EC0155170A912EC898E83 /* 104-index-cards.png in Resources */ = {isa = PBXBuildFile; fileRef = 643EC64BA175F2DD5F63340E /* 104-index-cards.png */; };
 		643EC02CFC04021A9919127B /* VTPG_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 643EC80592F4BF2DF9BA2C66 /* VTPG_Common.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		643EC04FEF58D8414999FE28 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 643ECD06D632AB2B5F2B643F /* Foundation.framework */; };
 		643EC1B7ABDA3AB8B622EF09 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 643ECB82F6FB9E6B45A9F2A7 /* CoreLocation.framework */; };
@@ -20,11 +21,14 @@
 		643EC8CC377230503653093F /* CrumbPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 643EC2837EA9E818FDCEC603 /* CrumbPath.m */; };
 		643EC9326F96C348A8B006CB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 643ECE2BA1649CA203042426 /* InfoPlist.strings */; };
 		643ECA358950C0549D80FCC6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 643ECEE71E63ABDF1231FF71 /* Default-568h@2x.png */; };
+		643ECA815F1D7AE71EF551DB /* 102-walk.png in Resources */ = {isa = PBXBuildFile; fileRef = 643EC4E29097495496F678BC /* 102-walk.png */; };
+		643ECB77299F1F338E360434 /* 102-walk@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 643EC1A81A01B2D4F872F71B /* 102-walk@2x.png */; };
 		643ECC568F7074E6DD6054F4 /* ExercisesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 643EC771C7270180451419E6 /* ExercisesTableViewController.m */; };
 		643ECCC8F19564B480DAFA61 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 643EC5780DCD180E15E5DC99 /* UIKit.framework */; };
 		643ECDDFA96874F1E674C3F7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 643ECD4BB1F4F98538DCD104 /* CoreGraphics.framework */; };
 		643ECE5F6848E8D7CDFC414E /* ExerciseMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 643ECD93D73EAE4C7B417F75 /* ExerciseMapViewController.m */; };
 		643ECEDC959F23B893EEA872 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 643EC0406B1E8C6DA7BEF473 /* Default.png */; };
+		643ECF34CF825BC444BD6CDC /* 104-index-cards@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 643ECA90E56C88277982BEF5 /* 104-index-cards@2x.png */; };
 		643ECFD43F251671382D49BA /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 643EC64EC4E8A920846B28FF /* Common.m */; };
 /* End PBXBuildFile section */
 
@@ -32,21 +36,25 @@
 		643EC01F425166BC46D4D1B1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		643EC0406B1E8C6DA7BEF473 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		643EC1344A8B6E97DA1A200C /* ExerciseGenius.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExerciseGenius.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		643EC1A81A01B2D4F872F71B /* 102-walk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "102-walk@2x.png"; sourceTree = "<group>"; };
 		643EC1BEAB7FA13919EF8E15 /* ExerciseGenius-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ExerciseGenius-Prefix.pch"; sourceTree = "<group>"; };
 		643EC282F057954EA49FD267 /* ExercisesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExercisesTableViewController.h; sourceTree = "<group>"; };
 		643EC2837EA9E818FDCEC603 /* CrumbPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrumbPath.m; sourceTree = "<group>"; };
 		643EC29DAACC06AE80320E02 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		643EC3E2D2E2617CA8B19B78 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		643EC41898A3F868082EFB7B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		643EC4E29097495496F678BC /* 102-walk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "102-walk.png"; sourceTree = "<group>"; };
 		643EC51C011D150F86076934 /* ExerciseMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseMapViewController.h; sourceTree = "<group>"; };
 		643EC5780DCD180E15E5DC99 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		643EC5791D13EF8AF2ABBC89 /* CrumbPathView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrumbPathView.m; sourceTree = "<group>"; };
 		643EC5E87C69375E8A399EDA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		643EC64BA175F2DD5F63340E /* 104-index-cards.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "104-index-cards.png"; sourceTree = "<group>"; };
 		643EC64EC4E8A920846B28FF /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
 		643EC771C7270180451419E6 /* ExercisesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExercisesTableViewController.m; sourceTree = "<group>"; };
 		643EC7D3BFE36069CEF4E6D9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		643EC80592F4BF2DF9BA2C66 /* VTPG_Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPG_Common.m; sourceTree = "<group>"; };
 		643EC8AD2C4C3C401F0BC3FD /* ExerciseGenius-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "ExerciseGenius-Info.plist"; sourceTree = "<group>"; };
+		643ECA90E56C88277982BEF5 /* 104-index-cards@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "104-index-cards@2x.png"; sourceTree = "<group>"; };
 		643ECB17DC62C1F33BE1B1B5 /* Exercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exercise.m; sourceTree = "<group>"; };
 		643ECB82F6FB9E6B45A9F2A7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		643ECBE656126CC7D3A2A131 /* VTPG_Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPG_Common.h; sourceTree = "<group>"; };
@@ -95,6 +103,10 @@
 				643EC0406B1E8C6DA7BEF473 /* Default.png */,
 				643EC3E2D2E2617CA8B19B78 /* Default@2x.png */,
 				643ECEE71E63ABDF1231FF71 /* Default-568h@2x.png */,
+				643EC64BA175F2DD5F63340E /* 104-index-cards.png */,
+				643ECA90E56C88277982BEF5 /* 104-index-cards@2x.png */,
+				643EC1A81A01B2D4F872F71B /* 102-walk@2x.png */,
+				643EC4E29097495496F678BC /* 102-walk.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -264,6 +276,10 @@
 				643EC7315F910A06E0E695D0 /* Default@2x.png in Resources */,
 				643ECA358950C0549D80FCC6 /* Default-568h@2x.png in Resources */,
 				643EC5DA57CAD4F23ECE73C8 /* MainStoryboard.storyboard in Resources */,
+				643EC0155170A912EC898E83 /* 104-index-cards.png in Resources */,
+				643ECF34CF825BC444BD6CDC /* 104-index-cards@2x.png in Resources */,
+				643ECB77299F1F338E360434 /* 102-walk@2x.png in Resources */,
+				643ECA815F1D7AE71EF551DB /* 102-walk.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
