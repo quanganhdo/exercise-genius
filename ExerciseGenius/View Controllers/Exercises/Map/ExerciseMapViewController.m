@@ -31,6 +31,10 @@
 @property (nonatomic) NSTimer    *exerciseTimer;
 @property (nonatomic) CLLocationDistance totalDistance;
 
+@property (nonatomic) BOOL isExercising;
+
+- (IBAction)toggleExercise:(UIButton *)button;
+
 @end
 
 @implementation ExerciseMapViewController {
@@ -43,7 +47,6 @@
     _exerciseType = kExerciseTypeRunning;
 
     [self.mapView setUserTrackingMode:MKUserTrackingModeFollowWithHeading];
-    [self.locationManager startUpdatingLocation];
 }
 
 - (void)updateStats {
@@ -138,6 +141,25 @@
         _crumbView = [[CrumbPathView alloc] initWithOverlay:overlay];
     }
     return self.crumbView;
+}
+
+#pragma mark - Actions
+
+- (IBAction)toggleExercise:(UIButton *)button {
+    if (!_isExercising) {
+        [self.locationManager startUpdatingLocation];
+
+        _isExercising = YES;
+        [button setTitle:@"Stop" forState:UIControlStateNormal];
+
+        return;
+    }
+
+    [self.locationManager stopUpdatingLocation];
+    if (_exerciseTimer) [_exerciseTimer invalidate];
+
+    _isExercising = NO;
+    [button setTitle:@"Start" forState:UIControlStateNormal];
 }
 
 @end
