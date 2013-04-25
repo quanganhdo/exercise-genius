@@ -14,9 +14,12 @@
 
 @interface ExerciseMapViewController ()
 
-@property (nonatomic) CLLocation    *oldLocation;
+@property (nonatomic) CLLocation    *lastLocation;
 @property (nonatomic) CrumbPath     *crumbs;
 @property (nonatomic) CrumbPathView *crumbView;
+
+@property (nonatomic) CLLocation *originalLocation;
+@property (nonatomic) NSTimer    *exerciseTimer;
 
 @end
 
@@ -29,6 +32,17 @@
 
     [self.mapView setUserTrackingMode:MKUserTrackingModeFollowWithHeading];
     [self.locationManager startUpdatingLocation];
+}
+
+- (void)updateTimestamp {
+    NSTimeInterval interval = fabs([_originalLocation.timestamp timeIntervalSinceNow]);
+    self.timeLabel.text = stringFromInterval(interval);
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+
+    if (_exerciseTimer) [_exerciseTimer invalidate];
 }
 
 - (CLLocationManager *)locationManager {
@@ -59,9 +73,18 @@
             NSLog(@"Current location: %@", location);
 
             double grade = 0.0f;
-            if (self.oldLocation) {
-                CLLocationDistance distance = [location distanceFromLocation:self.oldLocation];
-                grade = tan(asin(fabs(location.altitude - self.oldLocation.altitude) / distance));
+            if (_lastLocation) {
+                // Calculate grade
+                CLLocationDistance distance = [location distanceFromLocation:_lastLocation];
+                grade = tan(asin(fabs(location.altitude - _lastLocation.altitude) / distance));
+            } else {
+                // Start exercise
+                _originalLocation = location;
+
+                _exerciseTimer = [NSTimer scheduledTimerWithTimeInterval:1
+                                                                  target:self
+                                                                selector:@selector(updateTimestamp)
+                                                                userInfo:nil repeats:YES];
             }
 
             NSLog(@"Grade: %f", grade);
@@ -83,7 +106,7 @@
                 }
             }
 
-            self.oldLocation = location;
+            _lastLocation = location;
         }
     }
 }

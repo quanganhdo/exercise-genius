@@ -4,3 +4,5 @@
 //
 
 void alertError(id error);
+
+NSString *stringFromInterval(NSTimeInterval timeInterval);
