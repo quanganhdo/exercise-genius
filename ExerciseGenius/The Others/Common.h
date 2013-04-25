@@ -3,6 +3,13 @@
 //  Copyright Anh Quang Do. All rights reserved.
 //
 
+#define SECONDS_PER_MINUTE (60)
+#define MINUTES_PER_HOUR (60)
+#define SECONDS_PER_HOUR (SECONDS_PER_MINUTE * MINUTES_PER_HOUR)
+#define HOURS_PER_DAY (24)
+
+#define METERS_PER_MILE 1609.34
+
 void alertError(id error);
 
 NSString *stringFromInterval(NSTimeInterval timeInterval);

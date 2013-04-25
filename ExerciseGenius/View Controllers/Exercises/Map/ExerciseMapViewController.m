@@ -35,8 +35,13 @@
 }
 
 - (void)updateStats {
-    self.timeLabel.text     = stringFromInterval(fabs([_originalLocation.timestamp timeIntervalSinceNow]));
-    self.distanceLabel.text = stringFromMeter([_lastLocation distanceFromLocation:_originalLocation]);
+    NSTimeInterval     interval = fabs([_originalLocation.timestamp timeIntervalSinceNow]);
+    CLLocationDistance distance = [_lastLocation distanceFromLocation:_originalLocation];
+
+    self.timeLabel.text        = stringFromInterval(interval);
+    self.distanceLabel.text    = stringFromMeter(distance);
+    self.averagePaceLabel.text = stringFromInterval((interval / SECONDS_PER_MINUTE) / (distance / METERS_PER_MILE));
+    self.currentPaceLabel.text = self.averagePaceLabel.text;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
