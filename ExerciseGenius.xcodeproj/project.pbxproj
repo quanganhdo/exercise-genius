@@ -24,6 +24,7 @@
 		643ECDDFA96874F1E674C3F7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 643ECD4BB1F4F98538DCD104 /* CoreGraphics.framework */; };
 		643ECE5F6848E8D7CDFC414E /* ExerciseMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 643ECD93D73EAE4C7B417F75 /* ExerciseMapViewController.m */; };
 		643ECEDC959F23B893EEA872 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 643EC0406B1E8C6DA7BEF473 /* Default.png */; };
+		643ECFD43F251671382D49BA /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 643EC64EC4E8A920846B28FF /* Common.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,11 +41,13 @@
 		643EC5780DCD180E15E5DC99 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		643EC5791D13EF8AF2ABBC89 /* CrumbPathView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrumbPathView.m; sourceTree = "<group>"; };
 		643EC5E87C69375E8A399EDA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		643EC64EC4E8A920846B28FF /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
 		643EC7D3BFE36069CEF4E6D9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		643EC80592F4BF2DF9BA2C66 /* VTPG_Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPG_Common.m; sourceTree = "<group>"; };
 		643EC8AD2C4C3C401F0BC3FD /* ExerciseGenius-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "ExerciseGenius-Info.plist"; sourceTree = "<group>"; };
 		643ECB82F6FB9E6B45A9F2A7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		643ECBE656126CC7D3A2A131 /* VTPG_Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPG_Common.h; sourceTree = "<group>"; };
+		643ECC26755D48A85BB24D79 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		643ECD06D632AB2B5F2B643F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		643ECD4BB1F4F98538DCD104 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		643ECD93D73EAE4C7B417F75 /* ExerciseMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseMapViewController.m; sourceTree = "<group>"; };
@@ -161,6 +164,15 @@
 			path = Exercises;
 			sourceTree = "<group>";
 		};
+		643ECDEAAA23AADDE2BDC17E /* The Others */ = {
+			isa = PBXGroup;
+			children = (
+				643EC64EC4E8A920846B28FF /* Common.m */,
+				643ECC26755D48A85BB24D79 /* Common.h */,
+			);
+			path = "The Others";
+			sourceTree = "<group>";
+		};
 		643ECF208BEA343DC5968379 /* ExerciseGenius */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +182,7 @@
 				643EC55B308D3AB94BCED388 /* MainStoryboard.storyboard */,
 				643EC719AD5D23ED90207418 /* Libraries */,
 				643EC10D0B471C0E4C49334C /* View Controllers */,
+				643ECDEAAA23AADDE2BDC17E /* The Others */,
 			);
 			path = ExerciseGenius;
 			sourceTree = "<group>";
@@ -255,6 +268,7 @@
 				643ECE5F6848E8D7CDFC414E /* ExerciseMapViewController.m in Sources */,
 				643EC8CC377230503653093F /* CrumbPath.m in Sources */,
 				643EC69C32A1237CE89743C8 /* CrumbPathView.m in Sources */,
+				643ECFD43F251671382D49BA /* Common.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
