@@ -33,6 +33,7 @@
 @property (nonatomic) CLLocation *originalLocation;
 @property (nonatomic) NSTimer    *exerciseTimer;
 @property (nonatomic) CLLocationDistance totalDistance;
+@property (nonatomic) CLLocationDistance lastDistance;
 
 @property (nonatomic) BOOL isExercising;
 
@@ -54,6 +55,9 @@
 
 - (void)updateStats {
     NSTimeInterval interval = fabs([_originalLocation.timestamp timeIntervalSinceNow]);
+
+    // TODO: Approx
+    if (_lastDistance == _totalDistance) return;
 
     self.timeLabel.text        = stringFromInterval(interval);
     self.distanceLabel.text    = stringFromMeter(_totalDistance);
@@ -92,48 +96,49 @@
     NSTimeInterval interval = [location.timestamp timeIntervalSinceNow];
     if (fabs(interval) < kMaxTimeInterval) {
 //        if (location.horizontalAccuracy >= 0 && location.horizontalAccuracy < kMaxHorizontalAccuracy) {
-            NSLog(@"Current location: %@", location);
+        NSLog(@"Current location: %@", location);
 
-            if (_lastLocation) {
-                // Calculate grade
-                CLLocationDistance distance = [location distanceFromLocation:_lastLocation];
-                double             grade    = gradeBetweenLocations(location, _lastLocation, distance);
+        if (_lastLocation) {
+            // Calculate grade
+            CLLocationDistance distance = [location distanceFromLocation:_lastLocation];
+            double             grade    = gradeBetweenLocations(location, _lastLocation, distance);
 
-                // Total distance
-                _totalDistance += distance;
+            // Total distance
+            _lastDistance = _totalDistance;
+            _totalDistance += distance;
 
-                // Intensity
-                NSTimeInterval interval = [location.timestamp timeIntervalSinceDate:_lastLocation.timestamp];
-                self.intensityLabel.text = intensityForExercise(_exerciseType, distance, interval, grade);
-            } else {
-                // Start exercise
-                _originalLocation = location;
-                _totalDistance    = 0;
+            // Intensity
+            NSTimeInterval interval = [location.timestamp timeIntervalSinceDate:_lastLocation.timestamp];
+            self.intensityLabel.text = intensityForExercise(_exerciseType, distance, interval, grade);
+        } else {
+            // Start exercise
+            _originalLocation = location;
+            _lastDistance     = _totalDistance = 0;
 
-                _exerciseTimer = [NSTimer scheduledTimerWithTimeInterval:1
-                                                                  target:self
-                                                                selector:@selector(updateStats)
-                                                                userInfo:nil repeats:YES];
+            _exerciseTimer = [NSTimer scheduledTimerWithTimeInterval:1
+                                                              target:self
+                                                            selector:@selector(updateStats)
+                                                            userInfo:nil repeats:YES];
+        }
+
+        if (!self.crumbs) {
+            _crumbs = [[CrumbPath alloc] initWithCenterCoordinate:location.coordinate];
+            [self.mapView addOverlay:self.crumbs];
+
+            MKCoordinateRegion region = MKCoordinateRegionMake(location.coordinate,
+                                                               MKCoordinateSpanMake(0.005, 0.005));
+            [self.mapView setRegion:region animated:NO];
+        } else {
+            MKMapRect updateRect = [self.crumbs addCoordinate:location.coordinate];
+            if (!MKMapRectIsNull(updateRect)) {
+                MKZoomScale scale     = (MKZoomScale) (self.mapView.bounds.size.width / self.mapView.visibleMapRect.size.width);
+                CGFloat     lineWidth = MKRoadWidthAtZoomScale(scale);
+                updateRect = MKMapRectInset(updateRect, -lineWidth, -lineWidth);
+                [self.crumbView setNeedsDisplayInMapRect:updateRect];
             }
+        }
 
-            if (!self.crumbs) {
-                _crumbs = [[CrumbPath alloc] initWithCenterCoordinate:location.coordinate];
-                [self.mapView addOverlay:self.crumbs];
-
-                MKCoordinateRegion region = MKCoordinateRegionMake(location.coordinate,
-                                                                   MKCoordinateSpanMake(0.005, 0.005));
-                [self.mapView setRegion:region animated:NO];
-            } else {
-                MKMapRect updateRect = [self.crumbs addCoordinate:location.coordinate];
-                if (!MKMapRectIsNull(updateRect)) {
-                    MKZoomScale scale     = (MKZoomScale) (self.mapView.bounds.size.width / self.mapView.visibleMapRect.size.width);
-                    CGFloat     lineWidth = MKRoadWidthAtZoomScale(scale);
-                    updateRect = MKMapRectInset(updateRect, -lineWidth, -lineWidth);
-                    [self.crumbView setNeedsDisplayInMapRect:updateRect];
-                }
-            }
-
-            _lastLocation = location;
+        _lastLocation = location;
 //        }
     }
 }
