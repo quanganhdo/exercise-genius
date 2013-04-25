@@ -13,5 +13,9 @@
 
 @property (nonatomic) CLLocationManager  *locationManager;
 @property (nonatomic) IBOutlet MKMapView *mapView;
+@property (nonatomic) IBOutlet UILabel   *averagePaceLabel;
+@property (nonatomic) IBOutlet UILabel   *currentPaceLabel;
+@property (nonatomic) IBOutlet UILabel   *distanceLabel;
+@property (nonatomic) IBOutlet UILabel   *timeLabel;
 
 @end
