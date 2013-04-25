@@ -11,8 +11,8 @@
 #define METERS_PER_MILE 1609.34
 
 typedef enum {
-    kExerciseTypeWalking,
-    kExerciseTypeRunning
+    kExerciseTypeWalking = 0,
+    kExerciseTypeRunning = 1
 } ExerciseType;
 
 void alertError(id error);

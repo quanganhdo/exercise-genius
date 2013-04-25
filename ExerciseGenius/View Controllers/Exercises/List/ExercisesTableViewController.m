@@ -8,6 +8,8 @@
 #import "Exercise.h"
 #import "ExerciseMapViewController.h"
 
+#define kUserDefaultsExercisesKey @"kUserDefaultsExercisesKey"
+
 @interface ExercisesTableViewController ()
 
 @property (nonatomic) NSMutableArray *exercises;
@@ -22,8 +24,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-//    [self performSegueWithIdentifier:@"addExercise" sender:nil];
 }
 
 NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
@@ -46,7 +46,12 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
 
 - (NSMutableArray *)exercises {
     if (!_exercises) {
-        _exercises = [[NSMutableArray alloc] init];
+        NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsExercisesKey];
+        if (data) {
+            _exercises = [[NSMutableArray alloc] initWithArray:[NSKeyedUnarchiver unarchiveObjectWithData:data]];
+        } else {
+            _exercises = [[NSMutableArray alloc] init];
+        }
     }
 
     return _exercises;
@@ -68,7 +73,6 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                       reuseIdentifier:@"Exercise"];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
 
     Exercise *exercise = self.exercises[indexPath.row];
@@ -78,6 +82,17 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self.exercises removeObjectAtIndex:indexPath.row];
+        [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:indexPath.row inSection:0]]
+                              withRowAnimation:UITableViewRowAnimationFade];
+
+        [self save];
+    }
+}
+
+
 #pragma mark - Actions
 
 - (IBAction)addExercise:(UIStoryboardSegue *)segue {
@@ -86,7 +101,14 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
         [self.exercises insertObject:vc.exerciseToAdd atIndex:0];
         [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]]
                               withRowAnimation:UITableViewRowAnimationTop];
+
+        [self save];
     }
+}
+
+- (void)save {
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.exercises];
+    [[NSUserDefaults standardUserDefaults] setObject:data forKey:kUserDefaultsExercisesKey];
 }
 
 @end
