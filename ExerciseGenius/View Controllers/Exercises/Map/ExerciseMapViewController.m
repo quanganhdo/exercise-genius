@@ -20,6 +20,7 @@
 
 @property (nonatomic) CLLocation *originalLocation;
 @property (nonatomic) NSTimer    *exerciseTimer;
+@property (nonatomic) CLLocationDistance totalDistance;
 
 @end
 
@@ -35,12 +36,11 @@
 }
 
 - (void)updateStats {
-    NSTimeInterval     interval = fabs([_originalLocation.timestamp timeIntervalSinceNow]);
-    CLLocationDistance distance = [_lastLocation distanceFromLocation:_originalLocation];
+    NSTimeInterval interval = fabs([_originalLocation.timestamp timeIntervalSinceNow]);
 
     self.timeLabel.text        = stringFromInterval(interval);
-    self.distanceLabel.text    = stringFromMeter(distance);
-    self.averagePaceLabel.text = stringFromInterval((interval / SECONDS_PER_MINUTE) / (distance / METERS_PER_MILE));
+    self.distanceLabel.text    = stringFromMeter(_totalDistance);
+    self.averagePaceLabel.text = stringFromInterval((interval / SECONDS_PER_MINUTE) / (_totalDistance / METERS_PER_MILE));
     self.currentPaceLabel.text = self.averagePaceLabel.text;
 }
 
@@ -82,9 +82,13 @@
                 // Calculate grade
                 CLLocationDistance distance = [location distanceFromLocation:_lastLocation];
                 grade = tan(asin(fabs(location.altitude - _lastLocation.altitude) / distance));
+
+                // Total distance
+                _totalDistance += distance;
             } else {
                 // Start exercise
                 _originalLocation = location;
+                _totalDistance    = 0;
 
                 _exerciseTimer = [NSTimer scheduledTimerWithTimeInterval:1
                                                                   target:self
