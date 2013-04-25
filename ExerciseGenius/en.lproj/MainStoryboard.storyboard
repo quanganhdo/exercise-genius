@@ -227,6 +227,11 @@
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" title="Exercises" id="ZGr-Ba-pXi">
+                        <barButtonItem key="leftBarButtonItem" title="Sync" id="N1S-3J-B1S">
+                            <connections>
+                                <action selector="startSyncing" destination="Yog-Fc-7In" id="TRS-4X-TxV"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="bli-iT-teZ">
                             <connections>
                                 <segue destination="49r-XK-68f" kind="modal" identifier="addExercise" modalTransitionStyle="crossDissolve" id="f0V-Nb-lRm"/>
@@ -441,6 +446,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ExercisesTableViewController.h"/>
             <relationships>
                 <relationship kind="action" name="addExercise:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="startSyncing"/>
             </relationships>
         </class>
         <class className="GuidelineViewController" superclassName="UIViewController">

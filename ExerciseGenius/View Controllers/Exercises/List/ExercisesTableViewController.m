@@ -7,6 +7,8 @@
 #import "ExercisesTableViewController.h"
 #import "Exercise.h"
 #import "ExerciseMapViewController.h"
+#import "HealthVault.h"
+#import "HealthVaultService.h"
 
 #define kUserDefaultsExercisesKey @"kUserDefaultsExercisesKey"
 
@@ -15,6 +17,8 @@
 @property (nonatomic) NSMutableArray *exercises;
 
 + (NSDateFormatter *)dateFormatter;
+
+- (IBAction)startSyncing;
 
 @end
 
@@ -109,6 +113,14 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
 - (void)save {
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.exercises];
     [[NSUserDefaults standardUserDefaults] setObject:data forKey:kUserDefaultsExercisesKey];
+}
+
+- (IBAction)startSyncing {
+    [[HealthVault mainVault] performAuthenticationCheckOnAuthenticationCompleted:^(HealthVaultService *service) {
+        LOG_NS(@"OK");
+    }                                                          shellAuthRequired:^(HealthVaultService *service) {
+        LOG_NS(@"NOT OK!!!");
+    }];
 }
 
 @end

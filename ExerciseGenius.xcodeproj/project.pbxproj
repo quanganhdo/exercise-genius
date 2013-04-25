@@ -25,6 +25,7 @@
 		643EC69C32A1237CE89743C8 /* CrumbPathView.m in Sources */ = {isa = PBXBuildFile; fileRef = 643EC5791D13EF8AF2ABBC89 /* CrumbPathView.m */; };
 		643EC7315F910A06E0E695D0 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 643EC3E2D2E2617CA8B19B78 /* Default@2x.png */; };
 		643EC74A0425DDE2F103EDDD /* Logger.m in Sources */ = {isa = PBXBuildFile; fileRef = 643ECA30C59E6F31FD5350AC /* Logger.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		643EC81FF49415A3FFC533E4 /* HealthVault.m in Sources */ = {isa = PBXBuildFile; fileRef = 643EC843C3C3E89B4A842924 /* HealthVault.m */; };
 		643EC87D21FEABCA62FA4333 /* Intro.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 643EC3E6F77A1F5366779DEE /* Intro.mp4 */; };
 		643EC891BA799A4425C741F9 /* XmlElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 643ECC36DCDFD4D0CCEF8916 /* XmlElement.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		643EC8A79044C63EF5234FA9 /* MobilePlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 643ECFBF9731D5580815FADC /* MobilePlatform.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -64,6 +65,7 @@
 		643EC0F17BE0C460C5EA0682 /* HealthVaultSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthVaultSettings.m; sourceTree = "<group>"; };
 		643EC1344A8B6E97DA1A200C /* ExerciseGenius.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExerciseGenius.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		643EC14CCFAB4E2C961B0FCB /* MobilePlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobilePlatform.h; sourceTree = "<group>"; };
+		643EC18BB7E69882EE342D97 /* HealthVault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthVault.h; sourceTree = "<group>"; };
 		643EC1A81A01B2D4F872F71B /* 102-walk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "102-walk@2x.png"; sourceTree = "<group>"; };
 		643EC1BEAB7FA13919EF8E15 /* ExerciseGenius-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ExerciseGenius-Prefix.pch"; sourceTree = "<group>"; };
 		643EC1DCAC82CD4636182B4D /* HealthVaultRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthVaultRequest.h; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 		643EC771C7270180451419E6 /* ExercisesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExercisesTableViewController.m; sourceTree = "<group>"; };
 		643EC7D3BFE36069CEF4E6D9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		643EC80592F4BF2DF9BA2C66 /* VTPG_Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPG_Common.m; sourceTree = "<group>"; };
+		643EC843C3C3E89B4A842924 /* HealthVault.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthVault.m; sourceTree = "<group>"; };
 		643EC8AD2C4C3C401F0BC3FD /* ExerciseGenius-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "ExerciseGenius-Info.plist"; sourceTree = "<group>"; };
 		643EC8E34F9A53C5E6B2FE65 /* SDSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSegmentedControl.h; sourceTree = "<group>"; };
 		643EC92C078B574CA2DC8E33 /* DateTimeUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateTimeUtils.h; sourceTree = "<group>"; };
@@ -353,6 +356,8 @@
 			children = (
 				643EC64EC4E8A920846B28FF /* Common.m */,
 				643ECC26755D48A85BB24D79 /* Common.h */,
+				643EC843C3C3E89B4A842924 /* HealthVault.m */,
+				643EC18BB7E69882EE342D97 /* HealthVault.h */,
 			);
 			path = "The Others";
 			sourceTree = "<group>";
@@ -501,6 +506,7 @@
 				643EC29296E68A8D9B1F4194 /* HealthVaultRequest.m in Sources */,
 				643EC56ED9EA94BA48C9902C /* HealthVaultService.m in Sources */,
 				643ECEB68EEDE9046FF88BB4 /* HealthVaultResponse.m in Sources */,
+				643EC81FF49415A3FFC533E4 /* HealthVault.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
