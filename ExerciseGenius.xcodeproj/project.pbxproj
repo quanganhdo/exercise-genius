@@ -17,6 +17,7 @@
 		643EC52634EE74DA86D1B33A /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = 643ECB17DC62C1F33BE1B1B5 /* Exercise.m */; };
 		643EC53CE6884E2ED882B96F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 643ECFB91F0261A0931E2E2F /* MediaPlayer.framework */; };
 		643EC5DA57CAD4F23ECE73C8 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 643EC55B308D3AB94BCED388 /* MainStoryboard.storyboard */; };
+		643EC65438D25DA7809A4194 /* SDSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 643ECBE3CD1AABE52F87DC23 /* SDSegmentedControl.m */; };
 		643EC69C32A1237CE89743C8 /* CrumbPathView.m in Sources */ = {isa = PBXBuildFile; fileRef = 643EC5791D13EF8AF2ABBC89 /* CrumbPathView.m */; };
 		643EC7315F910A06E0E695D0 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 643EC3E2D2E2617CA8B19B78 /* Default@2x.png */; };
 		643EC87D21FEABCA62FA4333 /* Intro.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 643EC3E6F77A1F5366779DEE /* Intro.mp4 */; };
@@ -28,10 +29,12 @@
 		643ECB77299F1F338E360434 /* 102-walk@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 643EC1A81A01B2D4F872F71B /* 102-walk@2x.png */; };
 		643ECC568F7074E6DD6054F4 /* ExercisesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 643EC771C7270180451419E6 /* ExercisesTableViewController.m */; };
 		643ECCC8F19564B480DAFA61 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 643EC5780DCD180E15E5DC99 /* UIKit.framework */; };
+		643ECD46E4798BB151975518 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 643ECE04073BB798DFB7D238 /* QuartzCore.framework */; };
 		643ECDDFA96874F1E674C3F7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 643ECD4BB1F4F98538DCD104 /* CoreGraphics.framework */; };
 		643ECE5F6848E8D7CDFC414E /* ExerciseMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 643ECD93D73EAE4C7B417F75 /* ExerciseMapViewController.m */; };
 		643ECEDC959F23B893EEA872 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 643EC0406B1E8C6DA7BEF473 /* Default.png */; };
 		643ECF34CF825BC444BD6CDC /* 104-index-cards@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 643ECA90E56C88277982BEF5 /* 104-index-cards@2x.png */; };
+		643ECF65696A02E3A3CCAB93 /* GuidelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 643ECEB304253DEE835125BE /* GuidelineViewController.m */; };
 		643ECFD43F251671382D49BA /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 643EC64EC4E8A920846B28FF /* Common.m */; };
 /* End PBXBuildFile section */
 
@@ -60,17 +63,22 @@
 		643EC7D3BFE36069CEF4E6D9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		643EC80592F4BF2DF9BA2C66 /* VTPG_Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPG_Common.m; sourceTree = "<group>"; };
 		643EC8AD2C4C3C401F0BC3FD /* ExerciseGenius-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = "ExerciseGenius-Info.plist"; sourceTree = "<group>"; };
+		643EC8E34F9A53C5E6B2FE65 /* SDSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDSegmentedControl.h; sourceTree = "<group>"; };
 		643ECA90E56C88277982BEF5 /* 104-index-cards@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "104-index-cards@2x.png"; sourceTree = "<group>"; };
 		643ECB17DC62C1F33BE1B1B5 /* Exercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exercise.m; sourceTree = "<group>"; };
 		643ECB82F6FB9E6B45A9F2A7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		643ECBE3CD1AABE52F87DC23 /* SDSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDSegmentedControl.m; sourceTree = "<group>"; };
 		643ECBE656126CC7D3A2A131 /* VTPG_Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPG_Common.h; sourceTree = "<group>"; };
 		643ECC26755D48A85BB24D79 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		643ECD06D632AB2B5F2B643F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		643ECD4BB1F4F98538DCD104 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		643ECD93D73EAE4C7B417F75 /* ExerciseMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseMapViewController.m; sourceTree = "<group>"; };
 		643ECDAABEB42542AC65961C /* CrumbPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbPath.h; sourceTree = "<group>"; };
+		643ECE04073BB798DFB7D238 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		643ECE6D1EC8B930075877F3 /* Exercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exercise.h; sourceTree = "<group>"; };
 		643ECE9C31408BA45347CB66 /* CrumbPathView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbPathView.h; sourceTree = "<group>"; };
+		643ECEB304253DEE835125BE /* GuidelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuidelineViewController.m; sourceTree = "<group>"; };
+		643ECED6A1F73F1D077C127A /* GuidelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuidelineViewController.h; sourceTree = "<group>"; };
 		643ECEE71E63ABDF1231FF71 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		643ECF4754998213354CB283 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		643ECFB91F0261A0931E2E2F /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
@@ -87,6 +95,7 @@
 				643EC2157E793C5D7633832D /* MapKit.framework in Frameworks */,
 				643EC1B7ABDA3AB8B622EF09 /* CoreLocation.framework in Frameworks */,
 				643EC53CE6884E2ED882B96F /* MediaPlayer.framework in Frameworks */,
+				643ECD46E4798BB151975518 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +165,7 @@
 				643EC01F425166BC46D4D1B1 /* MapKit.framework */,
 				643ECB82F6FB9E6B45A9F2A7 /* CoreLocation.framework */,
 				643ECFB91F0261A0931E2E2F /* MediaPlayer.framework */,
+				643ECE04073BB798DFB7D238 /* QuartzCore.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -165,6 +175,7 @@
 			children = (
 				643ECF2C90A2C028975CE92C /* VTPG_Common */,
 				643EC826748EB8500E971449 /* Breadcrumb */,
+				643ECD87877EB581AED46143 /* SDSegmentedControl */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -185,8 +196,19 @@
 			children = (
 				643EC6B5A1CB2AA60737C061 /* GuidelinesTableViewController.m */,
 				643EC4B7D3174B91B06A7C29 /* GuidelinesTableViewController.h */,
+				643ECEB304253DEE835125BE /* GuidelineViewController.m */,
+				643ECED6A1F73F1D077C127A /* GuidelineViewController.h */,
 			);
 			path = Guidelines;
+			sourceTree = "<group>";
+		};
+		643ECD87877EB581AED46143 /* SDSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				643EC8E34F9A53C5E6B2FE65 /* SDSegmentedControl.h */,
+				643ECBE3CD1AABE52F87DC23 /* SDSegmentedControl.m */,
+			);
+			path = SDSegmentedControl;
 			sourceTree = "<group>";
 		};
 		643ECDAE8CD31279DBF7A8AF /* Exercises */ = {
@@ -321,6 +343,8 @@
 				643ECC568F7074E6DD6054F4 /* ExercisesTableViewController.m in Sources */,
 				643EC52634EE74DA86D1B33A /* Exercise.m in Sources */,
 				643ECB75AB1D3C200BAE0053 /* GuidelinesTableViewController.m in Sources */,
+				643EC65438D25DA7809A4194 /* SDSegmentedControl.m in Sources */,
+				643ECF65696A02E3A3CCAB93 /* GuidelineViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
