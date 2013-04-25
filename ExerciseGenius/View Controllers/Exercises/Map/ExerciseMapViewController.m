@@ -21,6 +21,7 @@
 @property (nonatomic) IBOutlet UILabel   *distanceLabel;
 @property (nonatomic) IBOutlet UILabel   *timeLabel;
 @property (nonatomic) IBOutlet UILabel   *intensityLabel;
+@property (nonatomic) IBOutlet UIView    *mapContainerView;
 
 @property (nonatomic) CLLocation    *lastLocation;
 @property (nonatomic) CrumbPath     *crumbs;
