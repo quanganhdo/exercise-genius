@@ -34,9 +34,9 @@
     [self.locationManager startUpdatingLocation];
 }
 
-- (void)updateTimestamp {
-    NSTimeInterval interval = fabs([_originalLocation.timestamp timeIntervalSinceNow]);
-    self.timeLabel.text = stringFromInterval(interval);
+- (void)updateStats {
+    self.timeLabel.text     = stringFromInterval(fabs([_originalLocation.timestamp timeIntervalSinceNow]));
+    self.distanceLabel.text = stringFromMeter([_lastLocation distanceFromLocation:_originalLocation]);
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -83,7 +83,7 @@
 
                 _exerciseTimer = [NSTimer scheduledTimerWithTimeInterval:1
                                                                   target:self
-                                                                selector:@selector(updateTimestamp)
+                                                                selector:@selector(updateStats)
                                                                 userInfo:nil repeats:YES];
             }
 

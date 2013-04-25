@@ -4,6 +4,7 @@
 //
 
 
+#import <CoreLocation/CoreLocation.h>
 #import "Common.h"
 
 void alertError(id error) {
@@ -29,4 +30,12 @@ NSString *stringFromInterval(NSTimeInterval timeInterval) {
 #undef MINUTES_PER_HOUR
 #undef SECONDS_PER_HOUR
 #undef HOURS_PER_DAY
+}
+
+NSString *stringFromMeter(CLLocationDistance distance) {
+#define METERS_PER_MILE 1609.34
+
+    return [NSString stringWithFormat:@"%.2f miles", distance / METERS_PER_MILE];
+
+#undef METERS_PER_MILE 1609.34
 }

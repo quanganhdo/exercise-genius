@@ -6,3 +6,4 @@
 void alertError(id error);
 
 NSString *stringFromInterval(NSTimeInterval timeInterval);
+NSString *stringFromMeter(CLLocationDistance distance);
