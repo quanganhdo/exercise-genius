@@ -40,7 +40,7 @@
 
     self.timeLabel.text        = stringFromInterval(interval);
     self.distanceLabel.text    = stringFromMeter(_totalDistance);
-    self.averagePaceLabel.text = stringFromInterval((interval / SECONDS_PER_MINUTE) / (_totalDistance / METERS_PER_MILE));
+    self.averagePaceLabel.text = stringFromInterval(interval / (_totalDistance / METERS_PER_MILE));
     self.currentPaceLabel.text = self.averagePaceLabel.text;
 }
 
