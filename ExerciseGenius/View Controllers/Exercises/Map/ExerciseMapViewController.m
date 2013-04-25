@@ -5,14 +5,22 @@
 
 
 #import "ExerciseMapViewController.h"
-#import "Common.h"
 #import "CrumbPath.h"
 #import "CrumbPathView.h"
+#import <QuartzCore/QuartzCore.h>
 
 #define kMaxTimeInterval 30
 #define kMaxHorizontalAccuracy 20
 
 @interface ExerciseMapViewController ()
+
+@property (nonatomic) CLLocationManager  *locationManager;
+@property (nonatomic) IBOutlet MKMapView *mapView;
+@property (nonatomic) IBOutlet UILabel   *averagePaceLabel;
+@property (nonatomic) IBOutlet UILabel   *currentPaceLabel;
+@property (nonatomic) IBOutlet UILabel   *distanceLabel;
+@property (nonatomic) IBOutlet UILabel   *timeLabel;
+@property (nonatomic) IBOutlet UILabel   *intensityLabel;
 
 @property (nonatomic) CLLocation    *lastLocation;
 @property (nonatomic) CrumbPath     *crumbs;
@@ -30,6 +38,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    _exerciseType = kExerciseTypeRunning;
 
     [self.mapView setUserTrackingMode:MKUserTrackingModeFollowWithHeading];
     [self.locationManager startUpdatingLocation];
@@ -85,6 +95,10 @@
 
                 // Total distance
                 _totalDistance += distance;
+
+                // Intensity
+                NSTimeInterval interval = [location.timestamp timeIntervalSinceDate:_lastLocation.timestamp];
+                self.intensityLabel.text = intensityForExercise(_exerciseType, distance, interval, grade);
             } else {
                 // Start exercise
                 _originalLocation = location;
@@ -95,8 +109,6 @@
                                                                 selector:@selector(updateStats)
                                                                 userInfo:nil repeats:YES];
             }
-
-            NSLog(@"Grade: %f", grade);
 
             if (!self.crumbs) {
                 _crumbs = [[CrumbPath alloc] initWithCenterCoordinate:location.coordinate];

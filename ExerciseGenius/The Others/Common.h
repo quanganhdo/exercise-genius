@@ -10,7 +10,14 @@
 
 #define METERS_PER_MILE 1609.34
 
+typedef enum {
+    kExerciseTypeWalking,
+    kExerciseTypeRunning
+} ExerciseType;
+
 void alertError(id error);
 
 NSString *stringFromInterval(NSTimeInterval timeInterval);
 NSString *stringFromMeter(CLLocationDistance distance);
+
+NSString *intensityForExercise(ExerciseType type, CLLocationDistance distance, NSTimeInterval interval, double grade);

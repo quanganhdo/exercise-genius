@@ -90,7 +90,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="ry1-p8-3zD">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="430"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="366"/>
                                 <connections>
                                     <outlet property="delegate" destination="49r-XK-68f" id="IFX-ED-V3Z"/>
                                 </connections>
@@ -99,7 +99,7 @@
                                 <rect key="frame" x="160" y="430" width="160" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CVu-H8-Atg">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CVu-H8-Atg">
                                         <rect key="frame" x="8" y="6" width="144" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -179,6 +179,13 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="intensity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3yc-Nv-awp">
+                                <rect key="frame" x="20" y="6" width="280" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -187,6 +194,7 @@
                         <outlet property="averagePaceLabel" destination="sNv-7R-I7X" id="6QS-Hs-bxJ"/>
                         <outlet property="currentPaceLabel" destination="txT-cp-pf7" id="sPz-mh-ogO"/>
                         <outlet property="distanceLabel" destination="CVu-H8-Atg" id="TyL-ye-hAL"/>
+                        <outlet property="intensityLabel" destination="3yc-Nv-awp" id="oRc-y5-KBn"/>
                         <outlet property="mapView" destination="ry1-p8-3zD" id="zbC-i5-Ogy"/>
                         <outlet property="timeLabel" destination="jVU-WD-mH2" id="4Fe-eX-oeh"/>
                         <outlet property="view" destination="3xO-4Q-HNw" id="EhU-5U-Sks"/>
@@ -236,6 +244,7 @@
                 <relationship kind="outlet" name="averagePaceLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="currentPaceLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="distanceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="intensityLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
                 <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
             </relationships>

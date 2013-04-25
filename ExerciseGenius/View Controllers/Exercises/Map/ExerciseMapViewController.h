@@ -7,15 +7,10 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
-
+#import "Common.h"
 
 @interface ExerciseMapViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate>
 
-@property (nonatomic) CLLocationManager  *locationManager;
-@property (nonatomic) IBOutlet MKMapView *mapView;
-@property (nonatomic) IBOutlet UILabel   *averagePaceLabel;
-@property (nonatomic) IBOutlet UILabel   *currentPaceLabel;
-@property (nonatomic) IBOutlet UILabel   *distanceLabel;
-@property (nonatomic) IBOutlet UILabel   *timeLabel;
+@property (nonatomic) ExerciseType exerciseType;
 
 @end
