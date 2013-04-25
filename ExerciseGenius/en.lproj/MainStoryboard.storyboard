@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="15">
+            <objects>
+                <tabBarController id="4" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="5">
+                        <rect key="frame" x="0.0" y="431" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BMI-cM-WSu" kind="relationship" relationship="viewControllers" id="RY3-0V-PD7"/>
+                        <segue destination="hDt-bH-TLN" kind="relationship" relationship="viewControllers" id="3AY-VQ-Ims"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-248" y="276"/>
+        </scene>
+        <!--Table View Controller - Guidelines-->
+        <scene sceneID="F2B-f1-Iju">
+            <objects>
+                <tableViewController id="RdP-IS-fyQ" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="WXK-Sm-mrg">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="u2d-i7-4q1">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Guidelines" id="eag-HA-CCb"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vOR-EY-Otl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="867" y="-118"/>
+        </scene>
+        <!--Exercises Table View Controller - Exercises-->
+        <scene sceneID="6rh-XL-OYA">
+            <objects>
+                <tableViewController id="Yog-Fc-7In" customClass="ExercisesTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="m3R-7X-k6G">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="wtt-UH-QJY">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Exercises" id="ZGr-Ba-pXi">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="bli-iT-teZ">
+                            <connections>
+                                <segue destination="49r-XK-68f" kind="push" identifier="addExercise" id="f0V-Nb-lRm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uHV-SD-rii" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="875" y="606"/>
+        </scene>
+        <!--Exercise Map View Controller - Exercise-->
+        <scene sceneID="b7W-6h-YZw">
+            <objects>
+                <viewController id="49r-XK-68f" customClass="ExerciseMapViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3xO-4Q-HNw">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ry1-p8-3zD">
+                                <connections>
+                                    <outlet property="delegate" destination="49r-XK-68f" id="IFX-ED-V3Z"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ry1-p8-3zD" firstAttribute="top" secondItem="3xO-4Q-HNw" secondAttribute="top" type="default" id="Mvz-E1-zmb"/>
+                            <constraint firstItem="ry1-p8-3zD" firstAttribute="trailing" secondItem="3xO-4Q-HNw" secondAttribute="trailing" type="default" id="VQ3-50-8pk"/>
+                            <constraint firstItem="ry1-p8-3zD" firstAttribute="leading" secondItem="3xO-4Q-HNw" secondAttribute="leading" type="default" id="jh1-Mf-DV6"/>
+                            <constraint firstItem="ry1-p8-3zD" firstAttribute="bottom" secondItem="3xO-4Q-HNw" secondAttribute="bottom" type="default" id="lJS-FC-1eU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Exercise" id="NCx-Yf-rm2"/>
+                    <connections>
+                        <outlet property="mapView" destination="ry1-p8-3zD" id="zbC-i5-Ogy"/>
+                        <outlet property="view" destination="3xO-4Q-HNw" id="EhU-5U-Sks"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="thf-jg-mvJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1364" y="606"/>
+        </scene>
+        <!--Navigation Controller - Exercises-->
+        <scene sceneID="8VU-jt-CXU">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="BMI-cM-WSu" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Exercises" id="WXZ-H1-cSx"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Kax-Oq-YAc">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Yog-Fc-7In" kind="relationship" relationship="rootViewController" id="6Oq-Hw-rF8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="acW-GB-xBV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="341" y="606"/>
+        </scene>
+        <!--Navigation Controller - Guidelines-->
+        <scene sceneID="8xu-He-9p7">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="hDt-bH-TLN" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Guidelines" id="mro-SM-BOQ"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gl9-y5-vCd">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="RdP-IS-fyQ" kind="relationship" relationship="rootViewController" id="YdA-dM-z30"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xV7-xv-2iO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="333" y="-118"/>
+        </scene>
+    </scenes>
+    <classes>
+        <class className="ExerciseMapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExerciseMapViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="ExercisesTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExercisesTableViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
