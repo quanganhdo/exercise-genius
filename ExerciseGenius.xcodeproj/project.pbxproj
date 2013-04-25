@@ -36,6 +36,7 @@
 		643ECF34CF825BC444BD6CDC /* 104-index-cards@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 643ECA90E56C88277982BEF5 /* 104-index-cards@2x.png */; };
 		643ECF65696A02E3A3CCAB93 /* GuidelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 643ECEB304253DEE835125BE /* GuidelineViewController.m */; };
 		643ECFD43F251671382D49BA /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 643EC64EC4E8A920846B28FF /* Common.m */; };
+		CDF377AF1729B8F500A22861 /* Guidelines.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDF377AE1729B8F500A22861 /* Guidelines.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		643ECEE71E63ABDF1231FF71 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		643ECF4754998213354CB283 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		643ECFB91F0261A0931E2E2F /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		CDF377AE1729B8F500A22861 /* Guidelines.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Guidelines.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 				643EC1A81A01B2D4F872F71B /* 102-walk@2x.png */,
 				643EC4E29097495496F678BC /* 102-walk.png */,
 				643EC3E6F77A1F5366779DEE /* Intro.mp4 */,
+				CDF377AE1729B8F500A22861 /* Guidelines.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				643ECB77299F1F338E360434 /* 102-walk@2x.png in Resources */,
 				643ECA815F1D7AE71EF551DB /* 102-walk.png in Resources */,
 				643EC87D21FEABCA62FA4333 /* Intro.mp4 in Resources */,
+				CDF377AF1729B8F500A22861 /* Guidelines.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

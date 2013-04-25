@@ -5,6 +5,7 @@
 
 
 #import "GuidelinesTableViewController.h"
+#import "GuidelineViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
 
 
@@ -19,6 +20,11 @@
         MPMoviePlayerViewController *vc  = [[MPMoviePlayerViewController alloc] initWithContentURL:URL];
         [self.navigationController presentMoviePlayerViewControllerAnimated:vc];
     }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UITableViewCell *)sender {
+    GuidelineViewController *vc = segue.destinationViewController;
+    vc.title = sender.textLabel.text;
 }
 
 @end

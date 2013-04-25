@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>Guidelines</key>
+        <dict>
+            <key>WarmUp</key>
+            <dict>
+                <key>Tabs</key>
+                <array>
+                    <dict>
+                        <key>Title</key>
+                        <string>Necessity</string>
+                        <key>Body</key>
+                        <string>A warm up exercise is necessary to increase body temperature, which brings the body from a state of rest to a state where
+                            exercise is possible with a reduction in post exercise stiffness and soreness.
+                        </string>
+                    </dict>
+                    <dict>
+                        <key>Title</key>
+                        <string>Intensity</string>
+                        <key>Body</key>
+                        <string>A warm up exercise should be performed at intensity levels between 1 and 4 METS. An appropriate warm up for light to moderate
+                            exercise would include activities such as a light jog or a brisk walk where you can maintain a conversation with a friend.
+                        </string>
+                    </dict>
+                    <dict>
+                        <key>Title</key>
+                        <string>Duration</string>
+                        <key>Body</key>
+                        <string>A warm up exercise should be performed for a minimum of 5 minutes, but not more than 10 minutes.</string>
+                    </dict>
+                    <dict>
+                        <key>Title</key>
+                        <string>Mode</string>
+                        <key>Body</key>
+                        <string>A variety of different activities can be performed to complete a warm up exercise. The mode of warm up should have some
+                            correlation to the activity that will follow. If you are planning on running, warm up with a light jog. If you are planning on
+                            jogging, warm up with a brisk walk. As long as you perform light to moderate intensity aerobic or muscular endurance exercise you
+                            will be able to complete a successful warm up.
+                        </string>
+                    </dict>
+                </array>
+            </dict>
+            <key>AerobicExercise</key>
+            <dict>
+                <key>Tabs</key>
+                <array>
+                    <dict>
+                        <key>Title</key>
+                        <string>Intensity</string>
+                        <key>Body</key>
+                        <string>Exercise intensity is best described in metabolic equivalents or METS. One MET is achieved at rest, when the body uses 3.5
+                            milliliters of oxygen per kilogram of body weight per minute. Though this sounds complicated it is just a measure of how much oxygen
+                            your body requires to match your current energy requirements. During exercise, oxygen consumption goes up as your metabolism goes
+                            up. Light Intensity exercise is defined as being less than 3 METS. Moderate Intensity exercise is defined as 3-5.9 METS and Vigorous
+                            Intensity exercise is defined as being greater than 6 METS. This app will help you identify what exercise intensity you are
+                            currently working at so that you can keep track of your progress towards the recommended allowance of aerobic exercise per week.
+                        </string>
+                    </dict>
+                    <dict>
+                        <key>Title</key>
+                        <string>Duration</string>
+                        <key>Body</key>
+                        <string>Duration is usually determined by the minutes of exercise performed. Currently, the recommendations for aerobic exercise are
+                            that you exercise for 30 minutes 5 days per week at a Moderate Intensity or &lt; 3 METS, or that you exercise for 20 minutes 3 days
+                            per week at a Vigorous Intensity. This application will help you keep track of how many minutes of moderate and vigorous intensity
+                            exercise you are accomplishing per week, and will allow you to upload that information to Health Vault.
+                        </string>
+                    </dict>
+                    <dict>
+                        <key>Title</key>
+                        <string>Mode</string>
+                        <key>Body</key>
+                        <string>Walking and running are the most typical methods or modes of accomplishing aerobic exercise. However, other modes can be used
+                            such as: swimming, biking, stair-steppers, elliptical machines, etc. Though this app is designed to assist you with walking and
+                            running exercise, there is an option to enter exercise information from other modes that can then also be added to your Health Vault
+                            file.
+                        </string>
+                    </dict>
+                </array>
+            </dict>
+            <key>StrengthTraining</key>
+            <dict>
+                <key>Tabs</key>
+                <array>
+                    <dict>
+                        <key>Title</key>
+                        <string>Types</string>
+                        <key>Body</key>
+                        <string>Strength as a component of overall health and fitness refers to muscular strength as well as endurance. Strength is a very
+                            important aspect of fitness and has its own recommendations separate from those for aerobic exercise. Strength training can be
+                            performed using specialized machines, free weights, or even your own body weight. Machines will be tailored to strengthen a specific
+                            muscle or group of muscles. Free weights, such as dumb bells, can be used for multiple exercises, as they are not quite as limited
+                            as machines. Lastly, body weight activities, such as push up, pull ups, and dips, can be done without the use of other equipment.
+                        </string>
+                    </dict>
+                    <dict>
+                        <key>Title</key>
+                        <string>Frequency</string>
+                        <key>Body</key>
+                        <string>Recommendations regarding frequency, as outlined by the American College of Sports Medicine, are no less than 2 to 3 days per
+                            week for muscular strength and endurance exercise. You can incorporate strength exercises more than 3 days per week, but it is
+                            important to allow your muscles to recover in between exercises. It is recommended that if you perform strength exercises with a
+                            certain muscle or muscle group, allow at least 48 hours of recovery before exercising that same muscle again.
+                        </string>
+                    </dict>
+                    <dict>
+                        <key>Title</key>
+                        <string>Sets/Reps</string>
+                        <key>Body</key>
+                        <string>Recommendations for specific numbers of repetitions and sets within a strength exercise vary depending upon your exercise goals.
+                            The National Strength and Conditioning Association’s recommends 2-3 sets and no more than 6 repetitions if your goal is to increase
+                            muscular strength. If your goal is to increase muscular endurance, the recommendation is 2-3 sets and a minimum of 12 repetitions.
+                            If your goal is to increase power, the recommendation is 3-5 sets and 2-5 repetitions.
+                        </string>
+                    </dict>
+                </array>
+            </dict>
+            <key>Flexibility</key>
+            <dict>
+                <key>Tabs</key>
+                <array>
+                    <dict>
+                        <key>Title</key>
+                        <string>Types</string>
+                        <key>Body</key>
+                        <string>Flexibility is an integral part of overall health and fitness, and it is recommended that stretching be included in all exercise
+                            regimens. Flexibility is the range of motion a joint has the ability to move through and limited flexibility can severely limit the
+                            types of activities an individual can perform successfully. There are several forms of stretching that facilitate improvement of
+                            flexibility. Static stretching is performed while your body is at rest, often described as sitting and holding. Static stretching is
+                            often used in activities such as gymnastics or ballet. Dynamic
+                            stretching is performed while your body is in motion.
+                        </string>
+                    </dict>
+                    <dict>
+                        <key>Title</key>
+                        <string>Frequency</string>
+                        <key>Body</key>
+                        <string>The American College of Sports Medicine recommends that static stretching exercises should be performed no less than 2 or 3 days
+                            per week, and each body part stretched should be stretched at least 4 times in rotation. Stretching is most effective once the
+                            muscles involved are warm, so it is recommended to perform stretching exercises after aerobic or strength exercises.
+                        </string>
+                    </dict>
+                    <dict>
+                        <key>Title</key>
+                        <string>Duration</string>
+                        <key>Body</key>
+                        <string>The current recommendation for stretching exercise duration is no less than 10 minutes. In that time all of the major muscle
+                            groups should be stretched. The recommendation for duration of individual stretches is that each stretch performed should be held
+                            for an average of 30 seconds. No stretch should be held for more than 2 minutes.
+                        </string>
+                    </dict>
+                </array>
+            </dict>
+        </dict>
+    </dict>
+</plist>
