@@ -9,8 +9,10 @@
 #import <MapKit/MapKit.h>
 #import "Common.h"
 
+@class Exercise;
+
 @interface ExerciseMapViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate>
 
-@property (nonatomic) ExerciseType exerciseType;
+@property (nonatomic) Exercise *exerciseToAdd;
 
 @end

@@ -32,7 +32,7 @@ NSString *stringFromMeter(CLLocationDistance distance) {
     return [NSString stringWithFormat:@"%.2f miles", distance / METERS_PER_MILE];
 }
 
-NSString *intensityForExercise(ExerciseType type, CLLocationDistance distance, NSTimeInterval interval, double grade) {
+double metsForExercise(ExerciseType type, CLLocationDistance distance, NSTimeInterval interval, double grade) {
     double c1 = 0, c2 = 0;
     if (type == kExerciseTypeWalking) {
         c1 = 0.1f;
@@ -43,7 +43,12 @@ NSString *intensityForExercise(ExerciseType type, CLLocationDistance distance, N
     }
 
     interval /= SECONDS_PER_MINUTE;
-    double mets = ((c1 * distance / interval + c2 * distance / interval * grade) + 3.5) / 3.5;
+
+    return ((c1 * distance / interval + c2 * distance / interval * grade) + 3.5) / 3.5;
+}
+
+NSString *intensityForExercise(ExerciseType type, CLLocationDistance distance, NSTimeInterval interval, double grade) {
+    double mets = metsForExercise(type, distance, interval, grade);
 
     LOG_EXPR(mets);
 
@@ -52,4 +57,8 @@ NSString *intensityForExercise(ExerciseType type, CLLocationDistance distance, N
     } else if (mets < 5.9f) {
         return @"moderate";
     } else {return @"vigorous";}
+}
+
+double gradeBetweenLocations(CLLocation *location1, CLLocation *location2, double distance) {
+    return tan(asin(fabs(location1.altitude - location2.altitude) / distance));
 }

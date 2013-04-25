@@ -20,4 +20,6 @@ void alertError(id error);
 NSString *stringFromInterval(NSTimeInterval timeInterval);
 NSString *stringFromMeter(CLLocationDistance distance);
 
+double metsForExercise(ExerciseType type, CLLocationDistance distance, NSTimeInterval interval, double grade);
 NSString *intensityForExercise(ExerciseType type, CLLocationDistance distance, NSTimeInterval interval, double grade);
+double gradeBetweenLocations(CLLocation *location1, CLLocation *location2, double distance);

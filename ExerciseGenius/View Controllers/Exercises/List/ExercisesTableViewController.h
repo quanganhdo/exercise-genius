@@ -8,4 +8,7 @@
 
 
 @interface ExercisesTableViewController : UITableViewController
+
+- (IBAction)addExercise:(UIStoryboardSegue *)segue;
+
 @end

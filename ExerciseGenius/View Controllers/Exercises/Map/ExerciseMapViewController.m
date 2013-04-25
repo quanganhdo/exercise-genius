@@ -7,12 +7,15 @@
 #import "ExerciseMapViewController.h"
 #import "CrumbPath.h"
 #import "CrumbPathView.h"
+#import "Exercise.h"
 #import <QuartzCore/QuartzCore.h>
 
 #define kMaxTimeInterval 30
 #define kMaxHorizontalAccuracy 20
 
 @interface ExerciseMapViewController ()
+
+@property (nonatomic) ExerciseType exerciseType;
 
 @property (nonatomic) CLLocationManager  *locationManager;
 @property (nonatomic) IBOutlet MKMapView *mapView;
@@ -91,11 +94,10 @@
         if (location.horizontalAccuracy >= 0 && location.horizontalAccuracy < kMaxHorizontalAccuracy) {
             NSLog(@"Current location: %@", location);
 
-            double grade = 0.0f;
             if (_lastLocation) {
                 // Calculate grade
                 CLLocationDistance distance = [location distanceFromLocation:_lastLocation];
-                grade = tan(asin(fabs(location.altitude - _lastLocation.altitude) / distance));
+                double             grade    = gradeBetweenLocations(location, _lastLocation, distance);
 
                 // Total distance
                 _totalDistance += distance;
@@ -143,9 +145,36 @@
     return self.crumbView;
 }
 
+#pragma mark - Segues
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    if ([identifier isEqualToString:@"addExercise"]) {
+        // This happens before isExercising is changed
+        if (!_isExercising) return NO;
+
+        Exercise *exercise = [[Exercise alloc] init];
+        exercise.type     = _exerciseType;
+        exercise.date     = _originalLocation.timestamp;
+        exercise.distance = _totalDistance;
+        exercise.interval = fabs([_originalLocation.timestamp timeIntervalSinceNow]);
+
+        double grade = gradeBetweenLocations(_lastLocation, _originalLocation, _totalDistance);
+        exercise.detail = @{
+                @"mets" : @(metsForExercise(_exerciseType, _totalDistance, exercise.interval, grade)),
+                @"intensity" : intensityForExercise(_exerciseType, _totalDistance, exercise.interval, grade)
+        };
+
+        self.exerciseToAdd = exercise;
+    };
+
+
+    return YES;
+}
+
 #pragma mark - Actions
 
 - (IBAction)toggleExercise:(UIButton *)button {
+    // Start
     if (!_isExercising) {
         [self.locationManager startUpdatingLocation];
 
@@ -155,6 +184,7 @@
         return;
     }
 
+    // Stop
     [self.locationManager stopUpdatingLocation];
     if (_exerciseTimer) [_exerciseTimer invalidate];
 
