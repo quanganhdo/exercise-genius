@@ -91,7 +91,7 @@
     CLLocation *location = [locations lastObject];
     NSTimeInterval interval = [location.timestamp timeIntervalSinceNow];
     if (fabs(interval) < kMaxTimeInterval) {
-        if (location.horizontalAccuracy >= 0 && location.horizontalAccuracy < kMaxHorizontalAccuracy) {
+//        if (location.horizontalAccuracy >= 0 && location.horizontalAccuracy < kMaxHorizontalAccuracy) {
             NSLog(@"Current location: %@", location);
 
             if (_lastLocation) {
@@ -134,7 +134,7 @@
             }
 
             _lastLocation = location;
-        }
+//        }
     }
 }
 
