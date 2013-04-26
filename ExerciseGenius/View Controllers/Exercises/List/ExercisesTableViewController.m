@@ -11,12 +11,18 @@
 #import "HealthVaultService.h"
 #import "WebViewController.h"
 #import "XMLReader.h"
+#import <QuartzCore/QuartzCore.h>
 
 #define kUserDefaultsExercisesKey @"kUserDefaultsExercisesKey"
 
+#define kMinimumNumberOfExercises 3
+
 @interface ExercisesTableViewController ()
 
-@property (nonatomic) NSMutableArray *exercises;
+@property (nonatomic) NSMutableArray   *exercises;
+@property (nonatomic) IBOutlet UIView  *summaryView;
+@property (nonatomic) IBOutlet UILabel *totalDistanceLabel;
+@property (nonatomic) IBOutlet UILabel *totalTimeLabel;
 
 + (NSDateFormatter *)dateFormatter;
 
@@ -30,6 +36,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.summaryView.layer.borderWidth = 1;
+    self.summaryView.layer.borderColor = self.tableView.separatorColor.CGColor;
 }
 
 NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
@@ -71,7 +80,16 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.exercises count];
+    NSInteger numRows = [self.exercises count];
+
+    if (numRows > 0) {
+        self.totalDistanceLabel.text = [NSString stringWithFormat:@"%.2f miles",
+                                                                  [[self.exercises valueForKeyPath:@"@sum.boxedDistance"] floatValue] / METERS_PER_MILE];
+        self.totalTimeLabel.text     = [NSString stringWithFormat:@"%.2f mins",
+                                                                  [[self.exercises valueForKeyPath:@"@sum.boxedInterval"] floatValue] / SECONDS_PER_MINUTE];
+    }
+
+    return numRows;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -91,8 +109,7 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self.exercises removeObjectAtIndex:indexPath.row];
-        [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:indexPath.row inSection:0]]
-                              withRowAnimation:UITableViewRowAnimationNone];
+        [self.tableView reloadData];
 
         [self save];
     }
@@ -105,8 +122,7 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
     ExerciseMapViewController *vc = segue.sourceViewController;
     if (vc.exerciseToAdd) {
         [self.exercises insertObject:vc.exerciseToAdd atIndex:0];
-        [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]]
-                              withRowAnimation:UITableViewRowAnimationTop];
+        [self.tableView reloadData];
 
         [self save];
     }

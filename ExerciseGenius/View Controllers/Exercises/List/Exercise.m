@@ -75,6 +75,13 @@
                                       year, month, day, hour, minute, _distance, _interval / SECONDS_PER_MINUTE];
 }
 
+- (NSNumber *)boxedInterval {
+    return @(_interval);
+}
+
+- (NSNumber *)boxedDistance {
+    return @(_distance);
+}
 
 #pragma mark - Keyed
 

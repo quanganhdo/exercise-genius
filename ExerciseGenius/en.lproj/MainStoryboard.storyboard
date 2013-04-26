@@ -198,9 +198,30 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="9Bo-ez-zVC">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0 mins" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ifg-DY-b4M">
+                                    <rect key="frame" x="160" y="0.0" width="140" height="41"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0 miles" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5ox-aA-XeR">
+                                    <rect key="frame" x="160" y="39" width="140" height="41"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Exercise" textLabel="UdB-Ih-2iF" detailTextLabel="4Qc-Fb-JKw" style="IBUITableViewCellStyleSubtitle" id="wtt-UH-QJY">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="102" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -239,6 +260,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="summaryView" destination="9Bo-ez-zVC" id="xzR-v2-wti"/>
+                        <outlet property="totalDistanceLabel" destination="5ox-aA-XeR" id="ooT-fL-vVV"/>
+                        <outlet property="totalTimeLabel" destination="ifg-DY-b4M" id="kBN-NK-614"/>
                         <segue destination="llN-eZ-iqM" kind="modal" identifier="doShellAuth" id="OUD-sN-OLq"/>
                     </connections>
                 </tableViewController>
@@ -488,8 +512,10 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ExercisesTableViewController.h"/>
             <relationships>
                 <relationship kind="action" name="addExercise:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="finishShellAuthentication:" candidateClass="UIStoryboardSegue"/>
                 <relationship kind="action" name="startSyncing"/>
+                <relationship kind="outlet" name="summaryView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="totalDistanceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="totalTimeLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="GuidelineViewController" superclassName="UIViewController">

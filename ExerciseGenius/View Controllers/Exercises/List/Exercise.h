@@ -21,4 +21,7 @@
 @property (nonatomic) NSDictionary       *detail;
 @property (nonatomic, readonly) NSString *healthVaultXMLValue;
 
+@property (nonatomic, readonly) NSNumber *boxedInterval;
+@property (nonatomic, readonly) NSNumber *boxedDistance;
+
 @end
