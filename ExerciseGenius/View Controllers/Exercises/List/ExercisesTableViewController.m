@@ -13,10 +13,9 @@
 #import "XMLReader.h"
 #import "CKSparkline.h"
 #import <QuartzCore/QuartzCore.h>
+#import <CoreGraphics/CoreGraphics.h>
 
 #define kUserDefaultsExercisesKey @"kUserDefaultsExercisesKey"
-
-#define kMinimumNumberOfExercises 3
 
 @interface ExercisesTableViewController ()
 
@@ -68,6 +67,41 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
             _exercises = [[NSMutableArray alloc] initWithArray:[NSKeyedUnarchiver unarchiveObjectWithData:data]];
         } else {
             _exercises = [[NSMutableArray alloc] init];
+
+            Exercise *ex1 = [[Exercise alloc] init];
+            ex1.type     = kExerciseTypeRunning;
+            ex1.date     = [NSDate dateWithTimeIntervalSinceNow:-SECONDS_PER_MINUTE* MINUTES_PER_HOUR * HOURS_PER_DAY];
+            ex1.interval = 15 * SECONDS_PER_MINUTE;
+            ex1.distance = 2000;
+            [_exercises addObject:ex1];
+
+            Exercise *ex2 = [[Exercise alloc] init];
+            ex2.type     = kExerciseTypeRunning;
+            ex2.date     = [NSDate dateWithTimeIntervalSinceNow:-round(SECONDS_PER_MINUTE* MINUTES_PER_HOUR * HOURS_PER_DAY * 2.5)];
+            ex2.interval = 5 * SECONDS_PER_MINUTE;
+            ex2.distance = 500;
+            [_exercises addObject:ex2];
+
+            Exercise *ex3 = [[Exercise alloc] init];
+            ex3.type     = kExerciseTypeRunning;
+            ex3.date     = [NSDate dateWithTimeIntervalSinceNow:-round(SECONDS_PER_MINUTE* MINUTES_PER_HOUR * HOURS_PER_DAY* 4.5)];
+            ex3.interval = 180 * SECONDS_PER_MINUTE;
+            ex3.distance = 30000;
+            [_exercises addObject:ex3];
+
+            Exercise *ex4 = [[Exercise alloc] init];
+            ex4.type     = kExerciseTypeRunning;
+            ex4.date     = [NSDate dateWithTimeIntervalSinceNow:-round(SECONDS_PER_MINUTE* MINUTES_PER_HOUR * HOURS_PER_DAY * 5.25)];
+            ex4.interval = 50 * SECONDS_PER_MINUTE;
+            ex4.distance = 7200;
+            [_exercises addObject:ex4];
+
+            Exercise *ex5 = [[Exercise alloc] init];
+            ex5.type     = kExerciseTypeRunning;
+            ex5.date     = [NSDate dateWithTimeIntervalSinceNow:-round(SECONDS_PER_MINUTE* MINUTES_PER_HOUR * HOURS_PER_DAY* 6.75)];
+            ex5.interval = 50 * SECONDS_PER_MINUTE;
+            ex5.distance = 4000;
+            [_exercises addObject:ex5];
         }
     }
 
@@ -84,8 +118,7 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSInteger numRows = [self.exercises count];
 
-    if (numRows > 0) {
-
+    if (numRows >= 3) {
         self.totalDistanceLabel.text      = [NSString stringWithFormat:@"%.2f miles",
                                                                        [[self.exercises valueForKeyPath:@"@sum.boxedDistance"] floatValue] / METERS_PER_MILE];
         self.totalDistanceLabel.textColor = [UIColor colorWithRed:0.254 green:0.434 blue:0.136 alpha:1.0];
