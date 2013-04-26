@@ -218,7 +218,7 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
             self.navigationItem.leftBarButtonItem.enabled  = NO;
             self.navigationItem.rightBarButtonItem.enabled = NO;
 
-            [[HealthVault mainVault] putExercises:self.exercises onCompletion:^(HealthVaultService *service, HealthVaultResponse *response) {
+            [[HealthVault mainVault] putExercises:unsyncedExercises onCompletion:^(HealthVaultService *service, HealthVaultResponse *response) {
                 self.navigationItem.leftBarButtonItem.enabled  = YES;
                 self.navigationItem.rightBarButtonItem.enabled = YES;
 
@@ -315,6 +315,7 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
                 exercise.healthVaultVersionStamp = exerciseDictionary[@"thing-id"][@"version-stamp"];
                 exercise.date                    = [[ExercisesTableViewController dateFormatter]
                                                                                   dateFromString:exerciseDictionary[@"eff-date"][@"text"]];
+
                 [self.exercises addObject:exercise];
             }
 
