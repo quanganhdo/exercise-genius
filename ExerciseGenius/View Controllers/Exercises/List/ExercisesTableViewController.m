@@ -11,6 +11,7 @@
 #import "HealthVaultService.h"
 #import "WebViewController.h"
 #import "XMLReader.h"
+#import "CKSparkline.h"
 #import <QuartzCore/QuartzCore.h>
 
 #define kUserDefaultsExercisesKey @"kUserDefaultsExercisesKey"
@@ -19,10 +20,11 @@
 
 @interface ExercisesTableViewController ()
 
-@property (nonatomic) NSMutableArray   *exercises;
-@property (nonatomic) IBOutlet UIView  *summaryView;
-@property (nonatomic) IBOutlet UILabel *totalDistanceLabel;
-@property (nonatomic) IBOutlet UILabel *totalTimeLabel;
+@property (nonatomic) NSMutableArray       *exercises;
+@property (nonatomic) IBOutlet UIView      *summaryView;
+@property (nonatomic) IBOutlet UILabel     *totalDistanceLabel;
+@property (nonatomic) IBOutlet UILabel     *totalTimeLabel;
+@property (nonatomic) IBOutlet CKSparkline *sparkView;
 
 + (NSDateFormatter *)dateFormatter;
 
@@ -83,10 +85,16 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
     NSInteger numRows = [self.exercises count];
 
     if (numRows > 0) {
-        self.totalDistanceLabel.text = [NSString stringWithFormat:@"%.2f miles",
-                                                                  [[self.exercises valueForKeyPath:@"@sum.boxedDistance"] floatValue] / METERS_PER_MILE];
-        self.totalTimeLabel.text     = [NSString stringWithFormat:@"%.2f mins",
-                                                                  [[self.exercises valueForKeyPath:@"@sum.boxedInterval"] floatValue] / SECONDS_PER_MINUTE];
+
+        self.totalDistanceLabel.text      = [NSString stringWithFormat:@"%.2f miles",
+                                                                       [[self.exercises valueForKeyPath:@"@sum.boxedDistance"] floatValue] / METERS_PER_MILE];
+        self.totalDistanceLabel.textColor = [UIColor colorWithRed:0.254 green:0.434 blue:0.136 alpha:1.0];
+
+        self.totalTimeLabel.text      = [NSString stringWithFormat:@"%.0f mins",
+                                                                   [[self.exercises valueForKeyPath:@"@sum.boxedInterval"] floatValue] / SECONDS_PER_MINUTE];
+        self.sparkView.data           = [self.exercises valueForKeyPath:@"boxedInterval"];
+        self.sparkView.lineWidth      = 2;
+        self.totalTimeLabel.textColor = self.sparkView.lineColor = [UIColor colorWithRed:0.209 green:0.548 blue:0.800 alpha:1.0];
     }
 
     return numRows;

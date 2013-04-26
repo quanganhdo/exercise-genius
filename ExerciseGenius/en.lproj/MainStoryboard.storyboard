@@ -216,6 +216,11 @@
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <view contentMode="scaleToFill" id="mUN-Nf-Hj1" customClass="CKSparkline">
+                                    <rect key="frame" x="20" y="10" width="132" height="58"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </view>
@@ -260,6 +265,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="sparkView" destination="mUN-Nf-Hj1" id="HU8-1X-fCp"/>
                         <outlet property="summaryView" destination="9Bo-ez-zVC" id="xzR-v2-wti"/>
                         <outlet property="totalDistanceLabel" destination="5ox-aA-XeR" id="ooT-fL-vVV"/>
                         <outlet property="totalTimeLabel" destination="ifg-DY-b4M" id="kBN-NK-614"/>
@@ -495,6 +501,9 @@
         <image name="104-index-cards.png" width="26" height="17"/>
     </resources>
     <classes>
+        <class className="CKSparkline" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CKSparkline.h"/>
+        </class>
         <class className="ExerciseMapViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ExerciseMapViewController.h"/>
             <relationships>
@@ -513,6 +522,7 @@
             <relationships>
                 <relationship kind="action" name="addExercise:" candidateClass="UIStoryboardSegue"/>
                 <relationship kind="action" name="startSyncing"/>
+                <relationship kind="outlet" name="sparkView" candidateClass="CKSparkline"/>
                 <relationship kind="outlet" name="summaryView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="totalDistanceLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="totalTimeLabel" candidateClass="UILabel"/>
