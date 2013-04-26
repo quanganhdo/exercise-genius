@@ -182,7 +182,7 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
     [[HealthVault mainVault] performAuthenticationCheckOnAuthenticationCompleted:^(HealthVaultService *service, HealthVaultResponse *response) {
         // Duh
         if (response.hasError) {
-            alertMessage(@"Something wrong happened. Please try again.");
+            alertMessage(self.view, YES, @"Something wrong happened. Please try again.");
 
             return;
         }
@@ -192,7 +192,7 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
             [[HealthVault mainVault] updateCurrentRecord:service.records[0]];
         } else if (!service.records) {
             // Duh
-            alertMessage(@"Your HealthVault account doesn't have any records.");
+            alertMessage(self.view, YES, @"Your HealthVault account doesn't have any records.");
         }
 
         if (service.records) {
@@ -205,7 +205,7 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
 
             // Check
             if ([unsyncedExercises count] == 0) {
-                alertMessage(@"Your exercises are in synced with Microsoft HealthVault already.");
+                alertMessage(self.view, NO, @"Syncing completed successfully.");
 
                 return;
             }
@@ -220,7 +220,7 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
 
                 // Duh
                 if (response.hasError) {
-                    alertMessage(response.errorText);
+                    alertMessage(self.view, YES, response.errorText);
 
                     return;
                 }
@@ -230,7 +230,7 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
                 NSError      *error      = nil;
                 NSDictionary *dictionary = [XMLReader dictionaryForXMLString:response.responseXml error:&error];
                 if (error) {
-                    alertMessage(@"Unable to retrieve data. Please try again.");
+                    alertMessage(self.view, YES, @"Unable to retrieve data. Please try again.");
 
                     return;
                 }
@@ -253,13 +253,13 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
                     [self save];
                 }
 
-                alertMessage(@"Your exercises have been uploaded to Microsoft HealthVault successfully.");
+                alertMessage(self.view, NO, @"Syncing completed successfully.");
             }];
         }
     }                                                          shellAuthRequired:^(HealthVaultService *service, HealthVaultResponse *response) {
         // Duh
         if (response.hasError) {
-            alertMessage(response.errorText);
+            alertMessage(self.view, YES, response.errorText);
 
             // TODO: return?
         }

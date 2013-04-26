@@ -5,12 +5,20 @@
 
 
 #import "Common.h"
+#import "WBErrorNoticeView.h"
+#import "WBSuccessNoticeView.h"
 
-void alertMessage(id error) {
-    [[[UIAlertView alloc] initWithTitle:nil
-                                message:[error isKindOfClass:[NSError class]] ? [error localizedDescription] : error
-                               delegate:nil cancelButtonTitle:@"OK"
-                      otherButtonTitles:nil] show];
+void alertMessage(UIView *view, BOOL isError, id message) {
+    id notice = nil;
+    message = [message isKindOfClass:[NSError class]] ? [message localizedDescription] : message;
+
+    if (isError) {
+        notice = [WBErrorNoticeView errorNoticeInView:view title:@"Error" message:message];
+    } else {
+        notice = [WBSuccessNoticeView successNoticeInView:view title:message];
+    }
+
+    [notice show];
 }
 
 NSString *stringFromInterval(NSTimeInterval timeInterval) {
