@@ -8,6 +8,16 @@
 	<string>Exercise</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
+	<key>CFBundleIcons</key>
+	<dict>
+		<key>CFBundlePrimaryIcon</key>
+		<dict>
+			<key>CFBundleIconFiles</key>
+			<array>
+				<string>Screen Shot 2013-04-25 at 10.54.23 AM copy.png</string>
+			</array>
+		</dict>
+	</dict>
 	<key>CFBundleIdentifier</key>
 	<string>edu.louisiana.quanganhdo.exercisegenius</string>
 	<key>CFBundleInfoDictionaryVersion</key>
