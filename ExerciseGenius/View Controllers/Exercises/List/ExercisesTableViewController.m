@@ -52,7 +52,6 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
         NSLocale *enUSPOSIXLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
 
         [dateFormatter setLocale:enUSPOSIXLocale];
-        [dateFormatter setDateFormat:@"MMM d, HH:ss"];
 
         [threadDictionary setObject:dateFormatter forKey:kCachedDateFormatterKey];
     }
@@ -140,6 +139,8 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Exercise"];
 
     Exercise *exercise = self.exercises[indexPath.row];
+    [[ExercisesTableViewController dateFormatter] setDateFormat:@"MMM d, HH:ss"];
+
     ((UILabel *) [cell viewWithTag:100]).text      = [[ExercisesTableViewController dateFormatter] stringFromDate:exercise.date];
     ((UILabel *) [cell viewWithTag:101]).text      = [exercise description];
     ((UIImageView *) [cell viewWithTag:102]).image = [UIImage imageNamed:exercise.detail[@"intensity"]];
@@ -260,8 +261,6 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
 
                 // The new way
                 [self download];
-
-                alertMessage(self.view, NO, @"Syncing completed successfully.");
             }];
         }
     }                                                          shellAuthRequired:^(HealthVaultService *service, HealthVaultResponse *response) {
@@ -302,6 +301,28 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
         }
 
         LOG_EXPR(dictionary);
+        if (dictionary[@"response"] && dictionary[@"response"][@"wc:info"]) {
+            [self.exercises removeAllObjects];
+
+            NSArray *exerciseDictionaries = dictionary[@"response"][@"wc:info"][@"group"][@"thing"];
+
+            [[ExercisesTableViewController dateFormatter] setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss"];
+            for (NSDictionary *exerciseDictionary in exerciseDictionaries) {
+                Exercise *exercise = [[Exercise alloc] init];
+                exercise.distance                = doubleFromString([exerciseDictionary[@"data-xml"] valueForKeyPath:@"exercise.distance.m.text"]);
+                exercise.interval                = doubleFromString(
+                        [exerciseDictionary[@"data-xml"] valueForKeyPath:@"exercise.duration.text"]) * SECONDS_PER_MINUTE;
+                exercise.healthVaultID           = exerciseDictionary[@"thing-id"][@"text"];
+                exercise.healthVaultVersionStamp = exerciseDictionary[@"thing-id"][@"version-stamp"];
+                exercise.date                    = [[ExercisesTableViewController dateFormatter]
+                                                                                  dateFromString:exerciseDictionary[@"eff-date"][@"text"]];
+                [self.exercises addObject:exercise];
+            }
+
+            [self.tableView reloadData];
+
+            alertMessage(self.view, NO, @"Syncing completed successfully.");
+        }
     }];
 }
 

@@ -21,6 +21,7 @@ void alertMessage(UIView *view, BOOL isError, id message);
 
 NSString *stringFromInterval(NSTimeInterval timeInterval);
 NSString *stringFromMeter(CLLocationDistance distance);
+double doubleFromString(NSString *string);
 
 double metsForExercise(ExerciseType type, CLLocationDistance distance, NSTimeInterval interval, double grade);
 NSString *intensityForExercise(ExerciseType type, CLLocationDistance distance, NSTimeInterval interval, double grade);

@@ -39,6 +39,10 @@ NSString *stringFromMeter(CLLocationDistance distance) {
     return [NSString stringWithFormat:@"%.2f miles", distance / METERS_PER_MILE];
 }
 
+double doubleFromString(NSString *string) {
+    return [[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] doubleValue];
+}
+
 double metsForExercise(ExerciseType type, CLLocationDistance distance, NSTimeInterval interval, double grade) {
     double c1 = 0, c2 = 0;
     if (type == kExerciseTypeWalking) {
