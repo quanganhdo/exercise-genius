@@ -92,7 +92,7 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self.exercises removeObjectAtIndex:indexPath.row];
         [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:indexPath.row inSection:0]]
-                              withRowAnimation:UITableViewRowAnimationFade];
+                              withRowAnimation:UITableViewRowAnimationNone];
 
         [self save];
     }
