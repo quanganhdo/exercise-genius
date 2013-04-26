@@ -8,6 +8,12 @@
 #import "HealthVaultService.h"
 #import "HealthVaultResponse.h"
 #import "Common.h"
+#import "HealthVaultRecord.h"
+#import "Exercise.h"
+#import "Base64.h"
+#import "DateTimeUtils.h"
+#import "XmlElement.h"
+#import "XmlTextReader.h"
 
 #define HEALTH_VAULT_PLATFORM_URL @"https://platform.healthvault-ppe.com/platform/wildcat.ashx"
 #define HEALTH_VAULT_SHELL_URL @"https://account.healthvault-ppe.com"
@@ -23,6 +29,8 @@
 @property (nonatomic, copy) HVBlock authenticationCompletedBlock;
 @property (nonatomic, copy) HVBlock shellAuthRequiredBlock;
 
+@property (nonatomic, copy) HVBlock putThingsCallbackBlock;
+
 @end
 
 @implementation HealthVault
@@ -35,6 +43,11 @@
     });
     return sharedInstance;
 }
+
+- (void)updateCurrentRecord:(HealthVaultRecord *)record {
+    self.service.currentRecord = record;
+}
+
 
 - (HealthVaultService *)service {
     if (!_service) {
@@ -84,6 +97,36 @@
 
 - (NSURL *)URL {
     return [NSURL URLWithString:[self.service getApplicationCreationUrl]];
+}
+
+- (void)putExercises:(NSArray *)exercises onCompletion:(void (^)(HealthVaultService *, HealthVaultResponse *))completion {
+    self.putThingsCallbackBlock = completion;
+
+    NSMutableString *XMLString = [[NSMutableString alloc] initWithString:@"<info>\n"];
+    for (Exercise   *exercise in exercises) {
+        if (!exercise.healthVaultID) {
+            [XMLString appendString:exercise.healthVaultXMLValue];
+        }
+    }
+    [XMLString appendString:@"</info>"];
+
+    LOG_EXPR(XMLString);
+
+    HealthVaultRequest *request = [[HealthVaultRequest alloc] initWithMethodName:@"PutThings"
+                                                                   methodVersion:2
+                                                                     infoSection:XMLString
+                                                                          target:self
+                                                                        callBack:@selector(putThingsCallback:)];
+
+    [self startSpinner];
+
+    [self.service sendRequest:request];
+}
+
+- (void)putThingsCallback:(HealthVaultResponse *)response {
+    if (self.putThingsCallbackBlock) self.putThingsCallbackBlock(self.service, response);
+
+    [self stopSpinner];
 }
 
 @end

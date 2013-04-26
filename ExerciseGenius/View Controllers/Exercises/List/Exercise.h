@@ -11,11 +11,13 @@
 
 @interface Exercise : NSObject
 
+@property (nonatomic) NSString *healthVaultID;
 @property (nonatomic) ExerciseType type;
 @property (nonatomic) NSString *title;
 @property (nonatomic) NSDate   *date;
 @property (nonatomic) CLLocationDistance distance;
 @property (nonatomic) NSTimeInterval     interval;
-@property (nonatomic) NSDictionary *detail;
+@property (nonatomic) NSDictionary       *detail;
+@property (nonatomic, readonly) NSString *healthVaultXMLValue;
 
 @end

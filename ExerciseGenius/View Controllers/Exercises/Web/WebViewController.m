@@ -40,7 +40,7 @@
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-    if (error.code == 999) return;
+    if (error.code == -999) return;
 
     alertError(error);
 }

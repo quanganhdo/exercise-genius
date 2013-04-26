@@ -126,10 +126,48 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
 
 - (IBAction)startSyncing {
     [[HealthVault mainVault] performAuthenticationCheckOnAuthenticationCompleted:^(HealthVaultService *service, HealthVaultResponse *response) {
-        LOG_NS(@"OK");
+        // Duh
+        if (response.hasError) {
+            alertError(@"Please try again.");
+
+            return;
+        }
+
+        if (!service.currentRecord && service.records && [service.records count] > 0) {
+            // Yay
+            [[HealthVault mainVault] updateCurrentRecord:service.records[0]];
+        } else if (!service.records) {
+            // Duh
+            alertError(@"Your HealthVault account doesn't have any records.");
+        }
+
+        if (service.records) {
+            // Things went well
+            LOG_EXPR([service.records[0] recordName]);
+
+            self.navigationItem.rightBarButtonItem.enabled = NO;
+
+            // Submit
+            [[HealthVault mainVault] putExercises:self.exercises onCompletion:^(HealthVaultService *service, HealthVaultResponse *response) {
+                // Duh
+                if (response.hasError) {
+                    alertError(response.errorText);
+
+                    return;
+                }
+
+                // TODO: Update exercises
+                LOG_EXPR(response.responseXml);
+
+                self.navigationItem.rightBarButtonItem.enabled = YES;
+            }];
+        }
     }                                                          shellAuthRequired:^(HealthVaultService *service, HealthVaultResponse *response) {
+        // Duh
         if (response.hasError) {
             alertError(response.errorText);
+
+            // TODO: return?
         }
 
         [self performSegueWithIdentifier:@"doShellAuth" sender:nil];

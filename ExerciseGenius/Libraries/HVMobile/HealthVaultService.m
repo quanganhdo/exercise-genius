@@ -208,6 +208,8 @@
 	HealthVaultResponse *healthVaultResponse = [[[HealthVaultResponse alloc] initWithWebResponse: response
 																						 request: healthVaultRequest] autorelease];
 
+    LOG_EXPR(response.responseData);
+
 	// The token that is returned from GetAuthenticatedSessionToken has a limited lifetime. When it expires,
 	// we will get an error here. We detect that situation, get a new token, and then re-issue the call.
 	if (healthVaultResponse.statusCode == RESPONSE_AUTH_SESSION_TOKEN_EXPIRED) {
