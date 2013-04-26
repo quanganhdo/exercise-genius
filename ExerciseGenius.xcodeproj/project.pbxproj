@@ -11,6 +11,7 @@
 		643EC02CFC04021A9919127B /* VTPG_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 643EC80592F4BF2DF9BA2C66 /* VTPG_Common.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		643EC04FEF58D8414999FE28 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 643ECD06D632AB2B5F2B643F /* Foundation.framework */; };
 		643EC1B7ABDA3AB8B622EF09 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 643ECB82F6FB9E6B45A9F2A7 /* CoreLocation.framework */; };
+		643EC1CE56C6A5C02F0C13FF /* CKSparkline.m in Sources */ = {isa = PBXBuildFile; fileRef = 643EC211CEFF5F13F5E53837 /* CKSparkline.m */; };
 		643EC2157E793C5D7633832D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 643EC01F425166BC46D4D1B1 /* MapKit.framework */; };
 		643EC29296E68A8D9B1F4194 /* HealthVaultRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 643EC68153875498716B994E /* HealthVaultRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		643EC2F26E025345BC139F9C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 643EC41898A3F868082EFB7B /* main.m */; };
@@ -74,6 +75,7 @@
 		643EC1A81A01B2D4F872F71B /* 102-walk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "102-walk@2x.png"; sourceTree = "<group>"; };
 		643EC1BEAB7FA13919EF8E15 /* ExerciseGenius-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ExerciseGenius-Prefix.pch"; sourceTree = "<group>"; };
 		643EC1DCAC82CD4636182B4D /* HealthVaultRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthVaultRequest.h; sourceTree = "<group>"; };
+		643EC211CEFF5F13F5E53837 /* CKSparkline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKSparkline.m; sourceTree = "<group>"; };
 		643EC26F8376636E77206099 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
 		643EC282F057954EA49FD267 /* ExercisesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExercisesTableViewController.h; sourceTree = "<group>"; };
 		643EC2837EA9E818FDCEC603 /* CrumbPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrumbPath.m; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 		643EC4E29097495496F678BC /* 102-walk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "102-walk.png"; sourceTree = "<group>"; };
 		643EC51C011D150F86076934 /* ExerciseMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseMapViewController.h; sourceTree = "<group>"; };
 		643EC5238BAE877B5E9BA8F0 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		643EC56760E2A4DE961E6A35 /* CKSparkline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKSparkline.h; sourceTree = "<group>"; };
 		643EC5780DCD180E15E5DC99 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		643EC5791D13EF8AF2ABBC89 /* CrumbPathView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrumbPathView.m; sourceTree = "<group>"; };
 		643EC5AF400472759BF48C27 /* HealthVaultRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthVaultRecord.h; sourceTree = "<group>"; };
@@ -215,6 +218,15 @@
 			path = English.lproj;
 			sourceTree = "<group>";
 		};
+		643EC284F74A4B871031A320 /* CKSparkline */ = {
+			isa = PBXGroup;
+			children = (
+				643EC56760E2A4DE961E6A35 /* CKSparkline.h */,
+				643EC211CEFF5F13F5E53837 /* CKSparkline.m */,
+			);
+			path = CKSparkline;
+			sourceTree = "<group>";
+		};
 		643EC3838455E6BCAAEA1671 /* Map */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +289,7 @@
 				643ECD87877EB581AED46143 /* SDSegmentedControl */,
 				643ECB50BADC0AC48CB549D2 /* HVMobile */,
 				643ECFC8DAD03E3409A0EA74 /* XMLReader */,
+				643EC284F74A4B871031A320 /* CKSparkline */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -547,6 +560,7 @@
 				643EC81FF49415A3FFC533E4 /* HealthVault.m in Sources */,
 				643EC5BC575E0F5B0875A73B /* WebViewController.m in Sources */,
 				643ECB480FC72C5EADB07835 /* XMLReader.m in Sources */,
+				643EC1CE56C6A5C02F0C13FF /* CKSparkline.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
