@@ -29,7 +29,6 @@
                     [Achievement achievementWithType:AchievementTypeConsecutiveDays andValue:90 completed:NO ],
                     [Achievement achievementWithType:AchievementTypeConsecutiveDays andValue:365 completed:NO ]
             ], @[
-                    [Achievement achievementWithType:AchievementTypeTotalDistance andValue:0.5 completed:YES ],
                     [Achievement achievementWithType:AchievementTypeTotalDistance andValue:1 completed:YES ],
                     [Achievement achievementWithType:AchievementTypeTotalDistance andValue:3 completed:YES ],
                     [Achievement achievementWithType:AchievementTypeTotalDistance andValue:7 completed:YES ],
