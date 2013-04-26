@@ -98,8 +98,12 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
             ex5.type     = kExerciseTypeRunning;
             ex5.date     = [NSDate dateWithTimeIntervalSinceNow:-round(SECONDS_PER_MINUTE* MINUTES_PER_HOUR * HOURS_PER_DAY* 6.75)];
             ex5.interval = 50 * SECONDS_PER_MINUTE;
-            ex5.distance = 4000;
+            ex5.distance = 10000;
             [_exercises addObject:ex5];
+
+            // Hack
+            NSData *data = [NSKeyedArchiver archivedDataWithRootObject:_exercises];
+            [[NSUserDefaults standardUserDefaults] setObject:data forKey:kUserDefaultsExercisesKey];
         }
     }
 
@@ -118,20 +122,20 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSInteger numRows = [self.exercises count];
+    [self updateSummary];
 
-    if (numRows >= 3) {
-        self.totalDistanceLabel.text      = [NSString stringWithFormat:@"%.2f miles",
-                                                                       [[self.exercises valueForKeyPath:@"@sum.boxedDistance"] floatValue] / METERS_PER_MILE];
-        self.totalDistanceLabel.textColor = [UIColor colorWithRed:0.254 green:0.434 blue:0.136 alpha:1.0];
+    return [self.exercises count];
+}
 
-        self.totalTimeLabel.text      = stringFromInterval([[self.exercises valueForKeyPath:@"@sum.boxedInterval"] floatValue]);
-        self.sparkView.data           = [self.exercises valueForKeyPath:@"boxedInterval"];
-        self.sparkView.lineWidth      = 2;
-        self.totalTimeLabel.textColor = self.sparkView.lineColor = [UIColor colorWithRed:0.209 green:0.548 blue:0.800 alpha:1.0];
-    }
+- (void)updateSummary {
+    self.totalDistanceLabel.text      = [NSString stringWithFormat:@"%.2f miles",
+                                                                   [[self.exercises valueForKeyPath:@"@sum.boxedDistance"] floatValue] / METERS_PER_MILE];
+    self.totalDistanceLabel.textColor = [UIColor colorWithRed:0.254 green:0.434 blue:0.136 alpha:1.0];
 
-    return numRows;
+    self.totalTimeLabel.text      = stringFromInterval([[self.exercises valueForKeyPath:@"@sum.boxedInterval"] floatValue]);
+    self.sparkView.data           = [self.exercises valueForKeyPath:@"boxedInterval"];
+    self.sparkView.lineWidth      = 2;
+    self.totalTimeLabel.textColor = self.sparkView.lineColor = [UIColor colorWithRed:0.209 green:0.548 blue:0.800 alpha:1.0];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -151,6 +155,7 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self.exercises removeObjectAtIndex:indexPath.row];
         [self.tableView reloadData];
+        [self updateSummary];
 
         [self save];
     }
@@ -164,6 +169,7 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
     if (vc.exerciseToAdd) {
         [self.exercises insertObject:vc.exerciseToAdd atIndex:0];
         [self.tableView reloadData];
+        [self updateSummary];
 
         [self save];
     }
@@ -320,6 +326,7 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
             }
 
             [self.tableView reloadData];
+            [self updateSummary];
 
             alertMessage(self.view, NO, @"Syncing completed successfully.");
         }
