@@ -12,9 +12,10 @@
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"%.2f miles • %d minutes",
+    return [NSString stringWithFormat:@"%d minutes • %.2f miles • %@ min/mi",
+                                      (int) (_interval / SECONDS_PER_MINUTE),
                                       _distance / METERS_PER_MILE,
-                                      (int) (_interval / SECONDS_PER_MINUTE)];
+                                      stringFromInterval(_interval / (_distance / METERS_PER_MILE))];
 }
 
 - (NSString *)healthVaultXMLValue {

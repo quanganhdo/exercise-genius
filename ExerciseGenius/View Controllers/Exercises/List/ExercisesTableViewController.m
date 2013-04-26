@@ -52,8 +52,7 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
         NSLocale *enUSPOSIXLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
 
         [dateFormatter setLocale:enUSPOSIXLocale];
-        [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-        [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+        [dateFormatter setDateFormat:@"MMM d, HH:ss"];
 
         [threadDictionary setObject:dateFormatter forKey:kCachedDateFormatterKey];
     }
@@ -113,6 +112,10 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return @"2013";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
