@@ -6,14 +6,7 @@
 
 #import "HealthVault.h"
 #import "HealthVaultService.h"
-#import "HealthVaultResponse.h"
-#import "Common.h"
-#import "HealthVaultRecord.h"
 #import "Exercise.h"
-#import "Base64.h"
-#import "DateTimeUtils.h"
-#import "XmlElement.h"
-#import "XmlTextReader.h"
 
 #define HEALTH_VAULT_PLATFORM_URL @"https://platform.healthvault-ppe.com/platform/wildcat.ashx"
 #define HEALTH_VAULT_SHELL_URL @"https://account.healthvault-ppe.com"
@@ -30,6 +23,8 @@
 @property (nonatomic, copy) HVBlock shellAuthRequiredBlock;
 
 @property (nonatomic, copy) HVBlock putThingsCallbackBlock;
+
+@property (nonatomic, copy) HVBlock getThingsCallbackBlock;
 
 @end
 
@@ -99,6 +94,35 @@
     return [NSURL URLWithString:[self.service getApplicationCreationUrl]];
 }
 
+- (void)getExercisesOnCompletion:(void (^)(HealthVaultService *, HealthVaultResponse *))completion {
+    self.getThingsCallbackBlock = completion;
+
+    NSString *XMLString =
+                     @"<info>"
+                             "<group>"
+                             "<filter>"
+                             "<type-id>85a21ddb-db20-4c65-8d30-33c899ccf612</type-id>"
+                             "<thing-state>Active</thing-state>"
+                             "</filter>"
+                             "<format>"
+                             "<section>core</section>"
+                             "<xml/>"
+                             "<type-version-format>85a21ddb-db20-4c65-8d30-33c899ccf612</type-version-format>"
+                             "</format>"
+                             "</group>"
+                             "</info>";
+
+    HealthVaultRequest *request = [[HealthVaultRequest alloc] initWithMethodName:@"GetThings"
+                                                                   methodVersion:3
+                                                                     infoSection:XMLString
+                                                                          target:self
+                                                                        callBack:@selector(getThingsCallback:)];
+
+    [self startSpinner];
+
+    [self.service sendRequest:request];
+}
+
 - (void)putExercises:(NSArray *)exercises onCompletion:(void (^)(HealthVaultService *, HealthVaultResponse *))completion {
     self.putThingsCallbackBlock = completion;
 
@@ -125,6 +149,12 @@
 
 - (void)putThingsCallback:(HealthVaultResponse *)response {
     if (self.putThingsCallbackBlock) self.putThingsCallbackBlock(self.service, response);
+
+    [self stopSpinner];
+}
+
+- (void)getThingsCallback:(HealthVaultResponse *)response {
+    if (self.getThingsCallbackBlock) self.getThingsCallbackBlock(self.service, response);
 
     [self stopSpinner];
 }

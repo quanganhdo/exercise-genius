@@ -209,7 +209,7 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
 
             // Check
             if ([unsyncedExercises count] == 0) {
-                alertMessage(self.view, NO, @"Syncing completed successfully.");
+                [self download];
 
                 return;
             }
@@ -239,23 +239,27 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
                     return;
                 }
 
-                id things = nil;
-                if (dictionary[@"response"] && dictionary[@"response"][@"wc:info"]) {
-                    things = [dictionary[@"response"][@"wc:info"] valueForKeyPath:@"thing-id"];
+//                // The old way
+//                id things = nil;
+//                if (dictionary[@"response"] && dictionary[@"response"][@"wc:info"]) {
+//                    things = [dictionary[@"response"][@"wc:info"] valueForKeyPath:@"thing-id"];
+//
+//                    // Edge case
+//                    if ([things isKindOfClass:[NSDictionary class]]) {
+//                        things = @[things];
+//                    }
+//
+//                    for (NSInteger idx = 0; idx < [things count]; idx++) {
+//                        Exercise *exercise = unsyncedExercises[idx];
+//                        exercise.healthVaultID           = things[idx][@"text"];
+//                        exercise.healthVaultVersionStamp = things[idx][@"version-stamp"];
+//                    }
+//
+//                    [self save];
+//                }
 
-                    // Edge case
-                    if ([things isKindOfClass:[NSDictionary class]]) {
-                        things = @[things];
-                    }
-
-                    for (NSInteger idx = 0; idx < [things count]; idx++) {
-                        Exercise *exercise = unsyncedExercises[idx];
-                        exercise.healthVaultID           = things[idx][@"text"];
-                        exercise.healthVaultVersionStamp = things[idx][@"version-stamp"];
-                    }
-
-                    [self save];
-                }
+                // The new way
+                [self download];
 
                 alertMessage(self.view, NO, @"Syncing completed successfully.");
             }];
@@ -269,6 +273,35 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
         }
 
         [self performSegueWithIdentifier:@"doShellAuth" sender:nil];
+    }];
+}
+
+- (void)download {
+    self.navigationItem.leftBarButtonItem.enabled  = NO;
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+
+    [[HealthVault mainVault] getExercisesOnCompletion:^(HealthVaultService *service, HealthVaultResponse *response) {
+        self.navigationItem.leftBarButtonItem.enabled  = YES;
+        self.navigationItem.rightBarButtonItem.enabled = YES;
+
+        // Duh
+        if (response.hasError) {
+            alertMessage(self.view, YES, response.errorText);
+
+            return;
+        }
+
+        LOG_EXPR(response.responseXml);
+
+        NSError      *error      = nil;
+        NSDictionary *dictionary = [XMLReader dictionaryForXMLString:response.responseXml error:&error];
+        if (error) {
+            alertMessage(self.view, YES, @"Unable to retrieve data. Please try again.");
+
+            return;
+        }
+
+        LOG_EXPR(dictionary);
     }];
 }
 

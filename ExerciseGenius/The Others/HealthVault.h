@@ -23,5 +23,6 @@ typedef void (^HVBlock)(HealthVaultService *service, HealthVaultResponse *respon
 - (void)startSpinner;
 - (void)stopSpinner;
 - (void)performAuthenticationCheckOnAuthenticationCompleted:(HVBlock)complete shellAuthRequired:(HVBlock)required;
+- (void)getExercisesOnCompletion:(void (^)(HealthVaultService *, HealthVaultResponse *))completion;
 - (void)putExercises:(NSArray *)exercises onCompletion:(void (^)(HealthVaultService *, HealthVaultResponse *))completion;
 @end
