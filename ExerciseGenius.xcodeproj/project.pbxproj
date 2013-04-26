@@ -56,6 +56,8 @@
 		643ECFD43F251671382D49BA /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 643EC64EC4E8A920846B28FF /* Common.m */; };
 		643ECFF026F8ABB73BEBDF94 /* XmlTextReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 643ECC95801611E81202638D /* XmlTextReader.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CDAD8EA2172A294D00EFB8E7 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CDAD8EA1172A294D00EFB8E7 /* Icon.png */; };
+		CDAD8EA4172A29EE00EFB8E7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDAD8EA3172A29EE00EFB8E7 /* Default@2x.png */; };
+		CDAD8EA6172A2A4500EFB8E7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDAD8EA5172A2A4500EFB8E7 /* Default-568h@2x.png */; };
 		CDF377AF1729B8F500A22861 /* Guidelines.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDF377AE1729B8F500A22861 /* Guidelines.plist */; };
 /* End PBXBuildFile section */
 
@@ -142,6 +144,8 @@
 		643ECFB91F0261A0931E2E2F /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		643ECFBF9731D5580815FADC /* MobilePlatform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobilePlatform.m; sourceTree = "<group>"; };
 		CDAD8EA1172A294D00EFB8E7 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
+		CDAD8EA3172A29EE00EFB8E7 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
+		CDAD8EA5172A2A4500EFB8E7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		CDF377AE1729B8F500A22861 /* Guidelines.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Guidelines.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -174,6 +178,8 @@
 		643EC0EF6433E11C57BF740E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CDAD8EA5172A2A4500EFB8E7 /* Default-568h@2x.png */,
+				CDAD8EA3172A29EE00EFB8E7 /* Default@2x.png */,
 				CDAD8EA1172A294D00EFB8E7 /* Icon.png */,
 				643EC8AD2C4C3C401F0BC3FD /* ExerciseGenius-Info.plist */,
 				643ECE2BA1649CA203042426 /* InfoPlist.strings */,
@@ -499,6 +505,8 @@
 				CDF377AF1729B8F500A22861 /* Guidelines.plist in Resources */,
 				643ECE830A0C70A029151CF7 /* Localizable.strings in Resources */,
 				CDAD8EA2172A294D00EFB8E7 /* Icon.png in Resources */,
+				CDAD8EA4172A29EE00EFB8E7 /* Default@2x.png in Resources */,
+				CDAD8EA6172A2A4500EFB8E7 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
