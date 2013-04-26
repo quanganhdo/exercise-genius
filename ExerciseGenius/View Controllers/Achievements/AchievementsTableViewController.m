@@ -22,26 +22,26 @@
 
     self.achievements = @[
             @[
-                    [Achievement achievementWithType:AchievementTypeConsecutiveDays andValue:3],
-                    [Achievement achievementWithType:AchievementTypeConsecutiveDays andValue:7],
-                    [Achievement achievementWithType:AchievementTypeConsecutiveDays andValue:14],
-                    [Achievement achievementWithType:AchievementTypeConsecutiveDays andValue:30],
-                    [Achievement achievementWithType:AchievementTypeConsecutiveDays andValue:90],
-                    [Achievement achievementWithType:AchievementTypeConsecutiveDays andValue:365]
+                    [Achievement achievementWithType:AchievementTypeConsecutiveDays andValue:3 completed:YES ],
+                    [Achievement achievementWithType:AchievementTypeConsecutiveDays andValue:7 completed:NO ],
+                    [Achievement achievementWithType:AchievementTypeConsecutiveDays andValue:14 completed:NO ],
+                    [Achievement achievementWithType:AchievementTypeConsecutiveDays andValue:30 completed:NO ],
+                    [Achievement achievementWithType:AchievementTypeConsecutiveDays andValue:90 completed:NO ],
+                    [Achievement achievementWithType:AchievementTypeConsecutiveDays andValue:365 completed:NO ]
             ], @[
-                    [Achievement achievementWithType:AchievementTypeTotalDistance andValue:0.5],
-                    [Achievement achievementWithType:AchievementTypeTotalDistance andValue:1],
-                    [Achievement achievementWithType:AchievementTypeTotalDistance andValue:3],
-                    [Achievement achievementWithType:AchievementTypeTotalDistance andValue:7],
-                    [Achievement achievementWithType:AchievementTypeTotalDistance andValue:10],
-                    [Achievement achievementWithType:AchievementTypeTotalDistance andValue:26]
+                    [Achievement achievementWithType:AchievementTypeTotalDistance andValue:0.5 completed:YES ],
+                    [Achievement achievementWithType:AchievementTypeTotalDistance andValue:1 completed:YES ],
+                    [Achievement achievementWithType:AchievementTypeTotalDistance andValue:3 completed:YES ],
+                    [Achievement achievementWithType:AchievementTypeTotalDistance andValue:7 completed:YES ],
+                    [Achievement achievementWithType:AchievementTypeTotalDistance andValue:10 completed:YES ],
+                    [Achievement achievementWithType:AchievementTypeTotalDistance andValue:26 completed:NO ]
             ], @[
-                    [Achievement achievementWithType:AchievementTypeTotalTime andValue:15],
-                    [Achievement achievementWithType:AchievementTypeTotalTime andValue:30],
-                    [Achievement achievementWithType:AchievementTypeTotalTime andValue:60],
-                    [Achievement achievementWithType:AchievementTypeTotalTime andValue:90],
-                    [Achievement achievementWithType:AchievementTypeTotalTime andValue:120],
-                    [Achievement achievementWithType:AchievementTypeTotalTime andValue:240]
+                    [Achievement achievementWithType:AchievementTypeTotalTime andValue:15 completed:YES ],
+                    [Achievement achievementWithType:AchievementTypeTotalTime andValue:30 completed:YES ],
+                    [Achievement achievementWithType:AchievementTypeTotalTime andValue:60 completed:YES ],
+                    [Achievement achievementWithType:AchievementTypeTotalTime andValue:90 completed:YES ],
+                    [Achievement achievementWithType:AchievementTypeTotalTime andValue:120 completed:YES ],
+                    [Achievement achievementWithType:AchievementTypeTotalTime andValue:240 completed:NO ]
             ],
     ];
 }

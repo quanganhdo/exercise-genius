@@ -18,7 +18,7 @@ typedef enum {
 @property (nonatomic) NSInteger       value;
 @property (nonatomic) BOOL            completed;
 
-- (id)initWithType:(AchievementType)_type andValue:(NSInteger)_value;
-+ (id)achievementWithType:(AchievementType)_type andValue:(NSInteger)_value;
+- (id)initWithType:(AchievementType)_type andValue:(NSInteger)_value completed:(BOOL)_completed;
++ (id)achievementWithType:(AchievementType)_type andValue:(NSInteger)_value completed:(BOOL)_completed;
 
 @end

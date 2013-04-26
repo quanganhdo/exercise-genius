@@ -11,18 +11,19 @@
 
 }
 
-- (id)initWithType:(AchievementType)_type andValue:(NSInteger)_value {
+- (id)initWithType:(AchievementType)_type andValue:(NSInteger)_value completed:(BOOL)_completed {
     self = [super init];
     if (self) {
-        self.type  = _type;
-        self.value = _value;
+        self.type      = _type;
+        self.value     = _value;
+        self.completed = _completed;
     }
 
     return self;
 }
 
-+ (id)achievementWithType:(AchievementType)_type andValue:(NSInteger)_value {
-    return [[self alloc] initWithType:_type andValue:_value];
++ (id)achievementWithType:(AchievementType)_type andValue:(NSInteger)_value completed:(BOOL)_completed {
+    return [[self alloc] initWithType:_type andValue:_value completed:_completed];
 }
 
 
