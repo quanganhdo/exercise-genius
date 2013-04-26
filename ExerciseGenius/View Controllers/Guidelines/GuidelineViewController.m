@@ -31,7 +31,7 @@
 
     // Set
     [self.segmentedControl removeAllSegments];
-    for (NSDictionary *tabTitle in [[self.tabs valueForKeyPath:@"Title"] reverseObjectEnumerator]) {
+    for (NSString *tabTitle in [[self.tabs valueForKeyPath:@"Title"] reverseObjectEnumerator]) {
         [self.segmentedControl insertSegmentWithTitle:tabTitle atIndex:0 animated:NO];
     }
 

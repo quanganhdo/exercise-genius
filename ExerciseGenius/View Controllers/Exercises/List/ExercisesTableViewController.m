@@ -10,6 +10,7 @@
 #import "HealthVault.h"
 #import "HealthVaultService.h"
 #import "WebViewController.h"
+#import "XMLReader.h"
 
 #define kUserDefaultsExercisesKey @"kUserDefaultsExercisesKey"
 
@@ -128,7 +129,7 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
     [[HealthVault mainVault] performAuthenticationCheckOnAuthenticationCompleted:^(HealthVaultService *service, HealthVaultResponse *response) {
         // Duh
         if (response.hasError) {
-            alertError(@"Please try again.");
+            alertMessage(@"Something wrong happened. Please try again.");
 
             return;
         }
@@ -138,34 +139,74 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
             [[HealthVault mainVault] updateCurrentRecord:service.records[0]];
         } else if (!service.records) {
             // Duh
-            alertError(@"Your HealthVault account doesn't have any records.");
+            alertMessage(@"Your HealthVault account doesn't have any records.");
         }
 
         if (service.records) {
             // Things went well
             LOG_EXPR([service.records[0] recordName]);
 
-            self.navigationItem.rightBarButtonItem.enabled = NO;
+            // Prepare
+            NSPredicate     *predicate         = [NSPredicate predicateWithFormat:@"healthVaultID = nil"];
+            __block NSArray *unsyncedExercises = [self.exercises filteredArrayUsingPredicate:predicate];
+
+            // Check
+            if ([unsyncedExercises count] == 0) {
+                alertMessage(@"Your exercises are in synced with Microsoft HealthVault already.");
+
+                return;
+            }
 
             // Submit
+            self.navigationItem.leftBarButtonItem.enabled  = NO;
+            self.navigationItem.rightBarButtonItem.enabled = NO;
+
             [[HealthVault mainVault] putExercises:self.exercises onCompletion:^(HealthVaultService *service, HealthVaultResponse *response) {
+                self.navigationItem.leftBarButtonItem.enabled  = YES;
+                self.navigationItem.rightBarButtonItem.enabled = YES;
+
                 // Duh
                 if (response.hasError) {
-                    alertError(response.errorText);
+                    alertMessage(response.errorText);
 
                     return;
                 }
 
-                // TODO: Update exercises
                 LOG_EXPR(response.responseXml);
 
-                self.navigationItem.rightBarButtonItem.enabled = YES;
+                NSError      *error      = nil;
+                NSDictionary *dictionary = [XMLReader dictionaryForXMLString:response.responseXml error:&error];
+                if (error) {
+                    alertMessage(@"Unable to retrieve data. Please try again.");
+
+                    return;
+                }
+
+                id things = nil;
+                if (dictionary[@"response"] && dictionary[@"response"][@"wc:info"]) {
+                    things = [dictionary[@"response"][@"wc:info"] valueForKeyPath:@"thing-id"];
+
+                    // Edge case
+                    if ([things isKindOfClass:[NSDictionary class]]) {
+                        things = @[things];
+                    }
+
+                    for (NSInteger idx = 0; idx < [things count]; idx++) {
+                        Exercise *exercise = unsyncedExercises[idx];
+                        exercise.healthVaultID           = things[idx][@"text"];
+                        exercise.healthVaultVersionStamp = things[idx][@"version-stamp"];
+                    }
+
+                    [self save];
+                }
+
+                alertMessage(@"Your exercises have been uploaded to Microsoft HealthVault successfully.");
             }];
         }
     }                                                          shellAuthRequired:^(HealthVaultService *service, HealthVaultResponse *response) {
         // Duh
         if (response.hasError) {
-            alertError(response.errorText);
+            alertMessage(response.errorText);
 
             // TODO: return?
         }

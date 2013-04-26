@@ -80,6 +80,7 @@
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
     [encoder encodeObject:self.healthVaultID forKey:@"healthVaultID"];
+    [encoder encodeObject:self.healthVaultVersionStamp forKey:@"healthVaultVersionStamp"];
     [encoder encodeInteger:self.type forKey:@"type"];
     [encoder encodeObject:self.title forKey:@"title"];
     [encoder encodeObject:self.date forKey:@"date"];
@@ -91,13 +92,14 @@
 - (id)initWithCoder:(NSCoder *)decoder {
     self = [super init];
     if (self) {
-        self.healthVaultID = [decoder decodeObjectForKey:@"healthVaultID"];
-        self.type          = (ExerciseType) [decoder decodeIntegerForKey:@"type"];
-        self.title         = [decoder decodeObjectForKey:@"title"];
-        self.date          = [decoder decodeObjectForKey:@"date"];
-        self.distance      = [decoder decodeDoubleForKey:@"distance"];
-        self.interval      = [decoder decodeDoubleForKey:@"interval"];
-        self.detail        = [decoder decodeObjectForKey:@"detail"];
+        self.healthVaultID           = [decoder decodeObjectForKey:@"healthVaultID"];
+        self.healthVaultVersionStamp = [decoder decodeObjectForKey:@"healthVaultVersionStamp"];
+        self.type                    = (ExerciseType) [decoder decodeIntegerForKey:@"type"];
+        self.title                   = [decoder decodeObjectForKey:@"title"];
+        self.date                    = [decoder decodeObjectForKey:@"date"];
+        self.distance                = [decoder decodeDoubleForKey:@"distance"];
+        self.interval                = [decoder decodeDoubleForKey:@"interval"];
+        self.detail                  = [decoder decodeObjectForKey:@"detail"];
     }
     return self;
 }

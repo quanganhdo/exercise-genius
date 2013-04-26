@@ -85,9 +85,9 @@
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
     if (error.code == kCLErrorDenied) {
-        alertError(@"Please check your settings.");
+        alertMessage(@"Please check your settings.");
     } else {
-        alertError(error);
+        alertMessage(error);
     }
 }
 

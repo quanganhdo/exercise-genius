@@ -17,7 +17,7 @@ typedef enum {
     kExerciseTypeRunning = 1
 } ExerciseType;
 
-void alertError(id error);
+void alertMessage(id error);
 
 NSString *stringFromInterval(NSTimeInterval timeInterval);
 NSString *stringFromMeter(CLLocationDistance distance);

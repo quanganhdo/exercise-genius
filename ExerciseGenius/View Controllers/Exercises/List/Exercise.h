@@ -12,6 +12,7 @@
 @interface Exercise : NSObject
 
 @property (nonatomic) NSString *healthVaultID;
+@property (nonatomic) NSString *healthVaultVersionStamp;
 @property (nonatomic) ExerciseType type;
 @property (nonatomic) NSString *title;
 @property (nonatomic) NSDate   *date;

@@ -6,8 +6,8 @@
 
 #import "Common.h"
 
-void alertError(id error) {
-    [[[UIAlertView alloc] initWithTitle:@"Error"
+void alertMessage(id error) {
+    [[[UIAlertView alloc] initWithTitle:nil
                                 message:[error isKindOfClass:[NSError class]] ? [error localizedDescription] : error
                                delegate:nil cancelButtonTitle:@"OK"
                       otherButtonTitles:nil] show];
