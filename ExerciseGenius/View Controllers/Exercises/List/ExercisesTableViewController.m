@@ -135,10 +135,6 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Exercise"];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-                                      reuseIdentifier:@"Exercise"];
-    }
 
     Exercise *exercise = self.exercises[indexPath.row];
     cell.textLabel.text       = [[ExercisesTableViewController dateFormatter] stringFromDate:exercise.date];

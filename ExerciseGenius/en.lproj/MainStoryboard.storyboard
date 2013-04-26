@@ -225,7 +225,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </view>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Exercise" textLabel="UdB-Ih-2iF" detailTextLabel="4Qc-Fb-JKw" style="IBUITableViewCellStyleSubtitle" id="wtt-UH-QJY">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Exercise" textLabel="UdB-Ih-2iF" detailTextLabel="4Qc-Fb-JKw" style="IBUITableViewCellStyleSubtitle" id="wtt-UH-QJY">
                                 <rect key="frame" x="0.0" y="102" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
