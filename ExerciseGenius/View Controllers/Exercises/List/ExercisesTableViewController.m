@@ -138,7 +138,7 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Exercise"];
 
     Exercise *exercise = self.exercises[indexPath.row];
-    [[ExercisesTableViewController dateFormatter] setDateFormat:@"MMM d, HH:ss"];
+    [[ExercisesTableViewController dateFormatter] setDateFormat:@"MMM d, HH:mm"];
 
     ((UILabel *) [cell viewWithTag:100]).text      = [[ExercisesTableViewController dateFormatter] stringFromDate:exercise.date];
     ((UILabel *) [cell viewWithTag:101]).text      = [exercise description];
