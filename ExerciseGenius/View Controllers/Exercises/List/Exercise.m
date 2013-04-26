@@ -18,6 +18,18 @@
                                       stringFromInterval(_interval / (_distance / METERS_PER_MILE))];
 }
 
+- (NSDictionary *)detail {
+    if (!_detail) {
+        _detail = @{
+                @"mets" : @(metsForExercise(_type, _distance, _interval, 0)),
+                @"intensity" : intensityForExercise(_type, _distance, _interval, 0)
+        };
+    }
+
+    return _detail;
+}
+
+
 - (NSString *)healthVaultXMLValue {
     // TODO: Timezone
     NSUInteger calendarUnits = NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit;

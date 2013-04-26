@@ -77,7 +77,7 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
             Exercise *ex2 = [[Exercise alloc] init];
             ex2.type     = kExerciseTypeRunning;
             ex2.date     = [NSDate dateWithTimeIntervalSinceNow:-round(SECONDS_PER_MINUTE* MINUTES_PER_HOUR * HOURS_PER_DAY * 2.5)];
-            ex2.interval = 5 * SECONDS_PER_MINUTE;
+            ex2.interval = 50 * SECONDS_PER_MINUTE;
             ex2.distance = 500;
             [_exercises addObject:ex2];
 
@@ -140,8 +140,9 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Exercise"];
 
     Exercise *exercise = self.exercises[indexPath.row];
-    cell.textLabel.text       = [[ExercisesTableViewController dateFormatter] stringFromDate:exercise.date];
-    cell.detailTextLabel.text = [exercise description];
+    ((UILabel *) [cell viewWithTag:100]).text      = [[ExercisesTableViewController dateFormatter] stringFromDate:exercise.date];
+    ((UILabel *) [cell viewWithTag:101]).text      = [exercise description];
+    ((UIImageView *) [cell viewWithTag:102]).image = [UIImage imageNamed:exercise.detail[@"intensity"]];
 
     return cell;
 }
