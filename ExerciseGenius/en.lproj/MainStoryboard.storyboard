@@ -401,7 +401,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="intensity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3yc-Nv-awp">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="standing by" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3yc-Nv-awp">
                                 <rect key="frame" x="20" y="0.0" width="280" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
@@ -586,6 +586,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ExercisesTableViewController.h"/>
             <relationships>
                 <relationship kind="action" name="addExercise:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="finishShellAuthentication:" candidateClass="UIStoryboardSegue"/>
                 <relationship kind="action" name="startSyncing"/>
                 <relationship kind="outlet" name="sparkView" candidateClass="CKSparkline"/>
                 <relationship kind="outlet" name="summaryView" candidateClass="UIView"/>

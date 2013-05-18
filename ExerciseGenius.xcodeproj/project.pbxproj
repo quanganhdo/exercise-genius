@@ -739,7 +739,6 @@
 				GCC_PREFIX_HEADER = "ExerciseGenius/ExerciseGenius-Prefix.pch";
 				INFOPLIST_FILE = "ExerciseGenius/ExerciseGenius-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "C5F2EF20-514E-4D16-8D81-DA4A80DE7323";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -777,7 +776,6 @@
 				GCC_PREFIX_HEADER = "ExerciseGenius/ExerciseGenius-Prefix.pch";
 				INFOPLIST_FILE = "ExerciseGenius/ExerciseGenius-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "C5F2EF20-514E-4D16-8D81-DA4A80DE7323";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

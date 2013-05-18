@@ -30,6 +30,7 @@
 
 @property (nonatomic) CLLocation *originalLocation;
 @property (nonatomic) NSTimer    *exerciseTimer;
+@property (nonatomic) NSTimer    *standByTimer;
 @property (nonatomic) CLLocationDistance totalDistance;
 @property (nonatomic) CLLocationDistance lastDistance;
 
@@ -63,10 +64,17 @@
     self.currentPaceLabel.text = self.averagePaceLabel.text;
 }
 
+- (void)standBy {
+    if (_lastDistance == _totalDistance) {
+        self.currentPaceLabel.text = @"standing by";
+    }
+}
+
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
 
     if (_exerciseTimer) [_exerciseTimer invalidate];
+    if (_standByTimer) [_standByTimer invalidate];
 }
 
 - (CLLocationManager *)locationManager {
@@ -111,7 +119,7 @@
         } else {
             // Start exercise
             _originalLocation = location;
-            _lastDistance     = _totalDistance = 0;
+            _lastDistance     = _totalDistance = 0; // TODO: remove this
 
             _exerciseTimer = [NSTimer scheduledTimerWithTimeInterval:1
                                                               target:self
@@ -179,7 +187,13 @@
 - (IBAction)toggleExercise:(UIButton *)button {
     // Start
     if (!_isExercising) {
+        _lastDistance = _totalDistance = 0;
+
         [self.locationManager startUpdatingLocation];
+        _standByTimer = [NSTimer timerWithTimeInterval:5
+                                                target:self
+                                              selector:@selector(standBy) userInfo:nil
+                                               repeats:YES];
 
         _isExercising = YES;
         [button setTitle:@"Stop" forState:UIControlStateNormal];
@@ -190,6 +204,7 @@
     // Stop
     [self.locationManager stopUpdatingLocation];
     if (_exerciseTimer) [_exerciseTimer invalidate];
+    if (_standByTimer) [_standByTimer invalidate];
 
     _isExercising = NO;
     [button setTitle:@"Start" forState:UIControlStateNormal];
