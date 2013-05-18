@@ -7,7 +7,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface ExercisesTableViewController : UITableViewController
+@interface ExercisesTableViewController : UITableViewController <UIActionSheetDelegate>
 
 - (IBAction)addExercise:(UIStoryboardSegue *)segue;
 

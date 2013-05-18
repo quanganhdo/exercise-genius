@@ -16,7 +16,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="BMI-cM-WSu" kind="relationship" relationship="viewControllers" id="RY3-0V-PD7"/>
-                        <segue destination="4hT-44-K58" kind="relationship" relationship="viewControllers" id="iuI-vd-d7R"/>
                         <segue destination="hDt-bH-TLN" kind="relationship" relationship="viewControllers" id="3AY-VQ-Ims"/>
                     </connections>
                 </tabBarController>
@@ -473,7 +472,7 @@
             <objects>
                 <tableViewController id="9id-mZ-LCq" customClass="AchievementsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="VZf-NR-uhh">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>

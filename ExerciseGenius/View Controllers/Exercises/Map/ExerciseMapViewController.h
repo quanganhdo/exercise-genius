@@ -14,5 +14,6 @@
 @interface ExerciseMapViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate>
 
 @property (nonatomic) Exercise *exerciseToAdd;
+@property (nonatomic) ExerciseType exerciseType;
 
 @end

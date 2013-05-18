@@ -24,6 +24,7 @@
 @property (nonatomic) IBOutlet UILabel     *totalDistanceLabel;
 @property (nonatomic) IBOutlet UILabel     *totalTimeLabel;
 @property (nonatomic) IBOutlet CKSparkline *sparkView;
+@property (nonatomic) UIActionSheet        *activityActionSheet;
 
 + (NSDateFormatter *)dateFormatter;
 
@@ -221,12 +222,12 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
             }
 
             // Submit
-            self.navigationItem.leftBarButtonItem.enabled  = NO;
-            self.navigationItem.rightBarButtonItem.enabled = NO;
+//            self.navigationItem.leftBarButtonItem.enabled  = NO;
+//            self.navigationItem.rightBarButtonItem.enabled = NO;
 
             [[HealthVault mainVault] putExercises:unsyncedExercises onCompletion:^(HealthVaultService *service, HealthVaultResponse *response) {
-                self.navigationItem.leftBarButtonItem.enabled  = YES;
-                self.navigationItem.rightBarButtonItem.enabled = YES;
+//                self.navigationItem.leftBarButtonItem.enabled  = YES;
+//                self.navigationItem.rightBarButtonItem.enabled = YES;
 
                 // Duh
                 if (response.hasError) {
@@ -281,12 +282,12 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
 }
 
 - (void)download {
-    self.navigationItem.leftBarButtonItem.enabled  = NO;
-    self.navigationItem.rightBarButtonItem.enabled = NO;
+//    self.navigationItem.leftBarButtonItem.enabled  = NO;
+//    self.navigationItem.rightBarButtonItem.enabled = NO;
 
     [[HealthVault mainVault] getExercisesOnCompletion:^(HealthVaultService *service, HealthVaultResponse *response) {
-        self.navigationItem.leftBarButtonItem.enabled  = YES;
-        self.navigationItem.rightBarButtonItem.enabled = YES;
+//        self.navigationItem.leftBarButtonItem.enabled  = YES;
+//        self.navigationItem.rightBarButtonItem.enabled = YES;
 
         // Duh
         if (response.hasError) {
@@ -338,6 +339,31 @@ NSString *const kCachedDateFormatterKey = @"CachedDateFormatterKey";
         WebViewController *vc = segue.destinationViewController;
         vc.URL = [[HealthVault mainVault] URL];
     }
+    if ([segue.identifier isEqualToString:@"addExercise"]) {
+        ExerciseMapViewController *vc = segue.destinationViewController;
+        vc.exerciseType               = (ExerciseType) [sender integerValue];
+    }
+}
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    if ([identifier isEqualToString:@"addExercise"]) {
+        self.activityActionSheet = [[UIActionSheet alloc]
+                                                   initWithTitle:@"Choose your activity" delegate:self cancelButtonTitle:@"Cancel"
+                                          destructiveButtonTitle:nil otherButtonTitles:@"Walking", @"Running", nil];
+        [self.activityActionSheet showFromTabBar:self.tabBarController.tabBar];
+
+        return NO;
+    }
+
+    return YES;
+}
+
+#pragma mark - Action sheet
+
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == actionSheet.cancelButtonIndex) return;
+
+    [self performSegueWithIdentifier:@"addExercise" sender:[NSNumber numberWithInteger:buttonIndex]];
 }
 
 @end

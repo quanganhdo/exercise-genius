@@ -15,8 +15,6 @@
 
 @interface ExerciseMapViewController ()
 
-@property (nonatomic) ExerciseType exerciseType;
-
 @property (nonatomic) CLLocationManager  *locationManager;
 @property (nonatomic) IBOutlet MKMapView *mapView;
 @property (nonatomic) IBOutlet UILabel   *averagePaceLabel;
@@ -48,7 +46,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    _exerciseType = kExerciseTypeRunning;
+    LOG_NS(@"%@", _exerciseType == kExerciseTypeRunning ? @"RUNNING" : @"WALKING");
 
     [self.mapView setUserTrackingMode:MKUserTrackingModeFollowWithHeading];
 }
